@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TCOMWG Universe</title>
+    <style>
+        /* This sets your faded background */
+        body {
+            margin: 0;
+            background: url('background.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            background-color: black; /* Backup color */
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* This is your 50% opacity/fade */
+            z-index: -1;
+        }
+
+        /* The Intro Video Box */
+        #video-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+        video { width: 80%; max-width: 800px; }
+        
+        /* The Close Button */
+        #close-btn {
+            position: absolute;
+            top: 20px; right: 20px;
+            color: white; font-size: 30px; cursor: pointer;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="video-overlay">
+        <div id="close-btn" onclick="closeVideo()">X</div>
+        <video id="intro-video" autoplay>
+            <source src="intro.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div style="color: white; text-align: center; padding-top: 100px;">
+        <h1>Welcome to TCOMWG</h1>
+        <p>The universe is loading...</p>
+    </div>
+
+    <script>
+        const video = document.getElementById('intro-video');
+        const overlay = document.getElementById('video-overlay');
+
+        // Automatically hide video when it ends
+        video.onended = function() {
+            overlay.style.display = 'none';
+        };
+
+        // Manual hide when clicking X
+        function closeVideo() {
+            overlay.style.display = 'none';
+            video.pause();
+        }
+    </script>
+</body>
+</html>
