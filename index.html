@@ -5,28 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCOMWG Universe</title>
     <style>
-        /* This sets your faded background using background.png */
+        /* 1. BACKGROUND & LAYOUT */
         body {
             margin: 0;
             padding: 0;
             background: url('background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             color: white;
             overflow-x: hidden;
         }
 
-        /* The Tint/Opacity Overlay */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* 0.6 is 60% darkness - adjust as needed */
+            background: rgba(0, 0, 0, 0.6); /* 60% Fade */
             z-index: -1;
         }
 
-        /* The Intro Video Box */
+        .content-hub {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        /* 2. INTRO VIDEO OVERLAY */
         #video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -36,33 +44,62 @@
             align-items: center;
             z-index: 100;
         }
-
-        video { width: 90%; max-width: 1000px; border-radius: 8px; }
-        
+        video { width: 90%; max-width: 1000px; }
         #close-btn {
             position: absolute;
             top: 30px; right: 40px;
             color: white; font-size: 40px; cursor: pointer;
-            font-weight: bold;
             z-index: 101;
         }
 
-        /* Main Content Styling */
-        .content-hub {
+        /* 3. MAIN NAVIGATION BUTTONS */
+        .nav-container {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .logo-title {
-            font-size: 3rem;
-            letter-spacing: 5px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
+        .main-btn-img {
+            width: 250px; /* Adjust size as needed */
+            cursor: pointer;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .main-btn-img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        /* 4. THE WATERFALL */
+        .waterfall {
+            display: none; /* Starts hidden */
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            animation: slideDown 0.5s ease forwards;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .social-item:hover { transform: translateX(10px); }
+        .social-item img { width: 30px; height: 30px; }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -72,61 +109,50 @@
         <div id="close-btn" onclick="closeVideo()">×</div>
         <video id="intro-video" autoplay muted>
             <source src="intro.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
 
     <div class="content-hub">
-        <h1 class="logo-title">TCOMWG</h1>
-        <p>A New Universe Awaits</p>
-        
-        <button class="main-link-btn" onclick="toggleLinks()">LINKS</button>
+        <h1 style="letter-spacing: 10px;">TCOMWG</h1>
+
+        <div class="nav-container">
+            <a href="books.html">
+                <img src="nooks-button.jpeg" alt="Books" class="main-btn-img">
+            </a>
+
+            <a href="series.html">
+                <img src="miniseries-button.jpeg" alt="Miniseries" class="main-btn-img">
+            </a>
+
+            <img src="links-button.jpeg" alt="Links" class="main-btn-img" onclick="toggleLinks()">
+        </div>
 
         <div id="link-waterfall" class="waterfall">
-            <a href="PASTE_FACEBOOK_LINK_HERE" target="_blank" class="social-item">
-                <img src="facebook.png" alt="Facebook"><span>FACEBOOK</span>
-            </a>
-            <a href="PASTE_INSTAGRAM_LINK_HERE" target="_blank" class="social-item">
-                <img src="instagram.png" alt="Instagram"><span>INSTAGRAM</span>
-            </a>
-            <a href="PASTE_TIKTOK_LINK_HERE" target="_blank" class="social-item">
-                <img src="tiktok.png" alt="TikTok"><span>TIKTOK</span>
-            </a>
-            <a href="PASTE_REDDIT_LINK_HERE" target="_blank" class="social-item">
-                <img src="reddit.png" alt="Reddit"><span>REDDIT</span>
-            </a>
-            <a href="PASTE_ROYALROAD_LINK_HERE" target="_blank" class="social-item">
-                <img src="royalroad.png" alt="Royal Road"><span>ROYAL ROAD</span>
-            </a>
-            <a href="PASTE_WATTPAD_LINK_HERE" target="_blank" class="social-item">
-                <img src="wattpad.png" alt="Wattpad"><span>WATTPAD</span>
-            </a>
+            <a href="YOUR_LINK" target="_blank" class="social-item"><img src="facebook.png"> FACEBOOK</a>
+            <a href="YOUR_LINK" target="_blank" class="social-item"><img src="instagram.png"> INSTAGRAM</a>
+            <a href="YOUR_LINK" target="_blank" class="social-item"><img src="tiktok.png"> TIKTOK</a>
+            <a href="YOUR_LINK" target="_blank" class="social-item"><img src="reddit.png"> REDDIT</a>
+            <a href="YOUR_LINK" target="_blank" class="social-item"><img src="royalroad.png"> ROYAL ROAD</a>
+            <a href="YOUR_LINK" target="_blank" class="social-item"><img src="wattpad.png"> WATTPAD</a>
         </div>
     </div>
 
-   <script>
-    const video = document.getElementById('intro-video');
-    const overlay = document.getElementById('video-overlay');
+    <script>
+        const video = document.getElementById('intro-video');
+        const overlay = document.getElementById('video-overlay');
 
-    // Video Close Logic
-    video.onended = function() { fadeOut(overlay); };
-    function closeVideo() { video.pause(); fadeOut(overlay); }
-    function fadeOut(element) {
-        element.style.transition = "opacity 1s ease";
-        element.style.opacity = 0;
-        setTimeout(() => { element.style.display = 'none'; }, 1000);
-    }
-
-    // NEW: Waterfall Toggle Logic
-    function toggleLinks() {
-        const waterfall = document.getElementById('link-waterfall');
-        // This switches between hiding and showing the list
-        if (waterfall.style.display === "flex") {
-            waterfall.style.display = "none";
-        } else {
-            waterfall.style.display = "flex";
+        function closeVideo() {
+            overlay.style.transition = "opacity 1s ease";
+            overlay.style.opacity = 0;
+            setTimeout(() => { overlay.style.display = 'none'; }, 1000);
+            video.pause();
         }
-    }
-</script>
+        video.onended = closeVideo;
+
+        function toggleLinks() {
+            const waterfall = document.getElementById('link-waterfall');
+            waterfall.style.display = (waterfall.style.display === "flex") ? "none" : "flex";
+        }
+    </script>
 </body>
 </html>
