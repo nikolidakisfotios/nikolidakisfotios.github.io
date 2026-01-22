@@ -104,28 +104,29 @@
         </div>
     </div>
 
-    <script>
-        const video = document.getElementById('intro-video');
-        const overlay = document.getElementById('video-overlay');
+   <script>
+    const video = document.getElementById('intro-video');
+    const overlay = document.getElementById('video-overlay');
 
-        // Automatically hide video when it ends
-        video.onended = function() {
-            fadeOut(overlay);
-        };
+    // Video Close Logic
+    video.onended = function() { fadeOut(overlay); };
+    function closeVideo() { video.pause(); fadeOut(overlay); }
+    function fadeOut(element) {
+        element.style.transition = "opacity 1s ease";
+        element.style.opacity = 0;
+        setTimeout(() => { element.style.display = 'none'; }, 1000);
+    }
 
-        // Manual hide when clicking X
-        function closeVideo() {
-            video.pause();
-            fadeOut(overlay);
+    // NEW: Waterfall Toggle Logic
+    function toggleLinks() {
+        const waterfall = document.getElementById('link-waterfall');
+        // This switches between hiding and showing the list
+        if (waterfall.style.display === "flex") {
+            waterfall.style.display = "none";
+        } else {
+            waterfall.style.display = "flex";
         }
-
-        function fadeOut(element) {
-            element.style.transition = "opacity 1s ease";
-            element.style.opacity = 0;
-            setTimeout(() => {
-                element.style.display = 'none';
-            }, 1000);
-        }
-    </script>
+    }
+</script>
 </body>
 </html>
