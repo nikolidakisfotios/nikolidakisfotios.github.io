@@ -6,14 +6,13 @@
     <title>TCOMWG Universe</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background: url('background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
             font-family: 'Segoe UI', sans-serif;
             color: white;
-            overflow-x: hidden;
+            overflow: hidden; /* Prevents scrolling during intro */
         }
 
         body::before {
@@ -24,6 +23,29 @@
             z-index: -1;
         }
 
+        /* TOP RIGHT SOCIAL BAR */
+        .top-social-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 50; /* Sits above background but below video */
+        }
+
+        .top-social-bar a img {
+            width: 25px;
+            height: 25px;
+            opacity: 0.7;
+            transition: 0.3s ease;
+        }
+
+        .top-social-bar a:hover img {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        /* MAIN CONTENT */
         .content-hub {
             display: flex;
             flex-direction: column;
@@ -33,194 +55,114 @@
             text-align: center;
         }
 
-      /* LOGO IMAGE REPLACING TEXT */
-          .site-logo {
-            width: 100%;           /* Allows it to be responsive */
-            max-width: 500px;      /* Increased from 300px to 500px - Change this number to go even bigger */
-            height: auto;          /* Keeps the proportions perfect */
-            margin-bottom: 30px;   /* Adds a bit more space before the buttons */
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5)); /* Optional: Adds a subtle "pop" from the background */
-}
+        .site-logo {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+        }
 
-        /* INTRO VIDEO OVERLAY */
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .nav-container a { text-decoration: none; line-height: 0; }
+
+        .main-btn-img {
+            width: 260px; 
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .main-btn-img:hover { transform: scale(1.05); filter: brightness(1.2); }
+
+        /* VIDEO OVERLAY */
         #video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: black;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            z-index: 100;
+            z-index: 1000;
         }
-        video { width: 90%; max-width: 1000px; }
+
+        #intro-video { width: 100%; height: 100%; object-fit: contain; }
+
+        #play-btn {
+            position: absolute;
+            padding: 15px 30px;
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
         #close-btn {
             position: absolute;
             top: 30px; right: 40px;
             color: white; font-size: 40px; cursor: pointer;
-            z-index: 101;
-        }
-
-        /* MAIN NAVIGATION BUTTONS */
-        .nav-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        /* Removing underlines and styling the link wrappers */
-        .nav-container a {
-            text-decoration: none; /* This removes the blue/purple underline */
-            display: block;
-            line-height: 0; /* Prevents tiny gaps under the images */
-        }
-
-        .main-btn-img {
-            width: 250px; 
-            cursor: pointer;
-            transition: transform 0.3s ease, filter 0.3s ease;
-            border: none; /* Ensures no border appears */
-        }
-
-        .main-btn-img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.2);
-        }
-
-        /* THE WATERFALL */
-        .waterfall {
-            display: none; 
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            animation: slideDown 0.5s ease forwards;
-        }
-
-        .social-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none; /* Removes underline from social links */
-            color: white;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .social-item:hover { transform: translateX(10px); }
-        .social-item img { width: 30px; height: 30px; }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            z-index: 1001;
         }
     </style>
 </head>
 <body>
 
-  <div id="video-overlay">
-    <div id="close-btn" onclick="closeVideo()">×</div>
-    
-    <video id="intro-video" playsinline>
-        <source src="intro.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div class="top-social-bar">
+        <a href="https://www.facebook.com/profile.php?id=100065114790871" target="_blank"><img src="facebook.png"></a>
+        <a href="https://www.instagram.com/tcomwg?igsh=MXRqc3FpOHN2amMyNg==" target="_blank"><img src="instagram.png"></a>
+        <a href="https://www.tiktok.com/@tcomwg?is_from_webapp=1&sender_device=pc" target="_blank"><img src="tiktok.png"></a>
+        <a href="https://www.reddit.com/user/tcomwg/" target="_blank"><img src="reddit.png"></a>
+        <a href="https://www.royalroad.com/profile/508286/fictions" target="_blank"><img src="royalroad.png"></a>
+        <a href="https://www.wattpad.com/story/376132462-the-chronicles-of-the-milky-way-galaxy-gaia" target="_blank"><img src="wattpad.png"></a>
+    </div>
 
-    <button id="play-btn" onclick="playWithSound()">ENTER THE UNIVERSE</button>
-</div>
-
+    <div id="video-overlay">
+        <div id="close-btn" onclick="closeVideo()">×</div>
+        <video id="intro-video" playsinline>
+            <source src="intro.mp4" type="video/mp4">
+        </video>
+        <button id="play-btn" onclick="playWithSound()">ENTER THE UNIVERSE</button>
+    </div>
 
     <div class="content-hub">
         <img src="logo.png" alt="TCOMWG Logo" class="site-logo">
-
         <div class="nav-container">
-            <a href="books.html">
-                <img src="books-button.png" alt="Books" class="main-btn-img">
-            </a>
-
-            <a href="series.html">
-                <img src="miniseries-button.png" alt="Miniseries" class="main-btn-img">
-            </a>
-
-            <img src="links-button.png" alt="Links" class="main-btn-img" onclick="toggleLinks()">
+            <a href="books.html"><img src="books-button.png" class="main-btn-img"></a>
+            <a href="series.html"><img src="miniseries-button.png" class="main-btn-img"></a>
         </div>
-
-          <div id="link-waterfall" class="waterfall">
-            <a href="https://www.facebook.com/profile.php?id=100065114790871" target="_blank" class="social-item"><img src="facebook.png"> FACEBOOK</a>
-            <a href="https://www.instagram.com/tcomwg?igsh=MXRqc3FpOHN2amMyNg==" target="_blank" class="social-item"><img src="instagram.png"> INSTAGRAM</a>
-            <a href="https://www.tiktok.com/@tcomwg?is_from_webapp=1&sender_device=pc" target="_blank" class="social-item"><img src="tiktok.png"> TIKTOK</a>
-            <a href="https://www.reddit.com/user/tcomwg/" target="_blank" class="social-item"><img src="reddit.png"> REDDIT</a>
-            <a href="https://www.royalroad.com/profile/508286/fictions" target="_blank" class="social-item"><img src="royalroad.png"> ROYAL ROAD</a>
-            <a href="https://www.wattpad.com/story/376132462-the-chronicles-of-the-milky-way-galaxy-gaia" target="_blank" class="social-item"><img src="wattpad.png"> WATTPAD</a>
-        </div>
-
     </div>
 
-  <style>
-    #video-overlay {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: black;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
+    <script>
+        const video = document.getElementById('intro-video');
+        const overlay = document.getElementById('video-overlay');
+        const playBtn = document.getElementById('play-btn');
 
-    /* This ensures the video fills the screen properly without cropping */
-    #intro-video {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* 'contain' ensures no cropping. Use 'cover' if you want it to fill every corner. */
-    }
+        function playWithSound() {
+            playBtn.style.display = 'none';
+            video.play();
+        }
 
-    /* Style for the Play Button */
-    #play-btn {
-        position: absolute;
-        padding: 15px 30px;
-        background: transparent;
-        color: white;
-        border: 2px solid white;
-        font-size: 1.2rem;
-        letter-spacing: 5px;
-        cursor: pointer;
-        z-index: 1001;
-    }
-</style>
+        video.onended = fadeOutOverlay;
 
-<script>
-    const video = document.getElementById('intro-video');
-    const overlay = document.getElementById('video-overlay');
-    const playBtn = document.getElementById('play-btn');
+        function closeVideo() {
+            video.pause();
+            fadeOutOverlay();
+        }
 
-    // Function to start video with sound
-    function playWithSound() {
-        playBtn.style.display = 'none'; // Hide the button
-        video.play();
-    }
-
-    // This ensures the video plays to the very end
-    video.onended = function() {
-        fadeOut(overlay);
-    };
-
-    function closeVideo() {
-        video.pause();
-        fadeOut(overlay);
-    }
-
-    function fadeOut(element) {
-        element.style.transition = "opacity 1.5s ease";
-        element.style.opacity = 0;
-        setTimeout(() => {
-            element.style.display = 'none';
-        }, 1500);
-    }
-</script>
-
+        function fadeOutOverlay() {
+            overlay.style.transition = "opacity 1.5s ease";
+            overlay.style.opacity = 0;
+            document.body.style.overflow = "auto"; // Re-enable scrolling
+            setTimeout(() => { overlay.style.display = 'none'; }, 1500);
+        }
+    </script>
 </body>
 </html>
