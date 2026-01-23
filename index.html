@@ -119,12 +119,17 @@
 </head>
 <body>
 
-    <div id="video-overlay">
-        <div id="close-btn" onclick="closeVideo()">×</div>
-        <video id="intro-video" autoplay muted>
-            <source src="intro.mp4" type="video/mp4">
-        </video>
-    </div>
+  <div id="video-overlay">
+    <div id="close-btn" onclick="closeVideo()">×</div>
+    
+    <video id="intro-video" playsinline>
+        <source src="intro.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <button id="play-btn" onclick="playWithSound()">ENTER THE UNIVERSE</button>
+</div>
+
 
     <div class="content-hub">
         <img src="logo.png" alt="TCOMWG Logo" class="site-logo">
@@ -152,22 +157,68 @@
 
     </div>
 
-    <script>
-        const video = document.getElementById('intro-video');
-        const overlay = document.getElementById('video-overlay');
+  <style>
+    #video-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
 
-        function closeVideo() {
-            overlay.style.transition = "opacity 1s ease";
-            overlay.style.opacity = 0;
-            setTimeout(() => { overlay.style.display = 'none'; }, 1000);
-            video.pause();
-        }
-        video.onended = closeVideo;
+    /* This ensures the video fills the screen properly without cropping */
+    #intro-video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* 'contain' ensures no cropping. Use 'cover' if you want it to fill every corner. */
+    }
 
-        function toggleLinks() {
-            const waterfall = document.getElementById('link-waterfall');
-            waterfall.style.display = (waterfall.style.display === "flex") ? "none" : "flex";
-        }
-    </script>
+    /* Style for the Play Button */
+    #play-btn {
+        position: absolute;
+        padding: 15px 30px;
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+        font-size: 1.2rem;
+        letter-spacing: 5px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+</style>
+
+<script>
+    const video = document.getElementById('intro-video');
+    const overlay = document.getElementById('video-overlay');
+    const playBtn = document.getElementById('play-btn');
+
+    // Function to start video with sound
+    function playWithSound() {
+        playBtn.style.display = 'none'; // Hide the button
+        video.play();
+    }
+
+    // This ensures the video plays to the very end
+    video.onended = function() {
+        fadeOut(overlay);
+    };
+
+    function closeVideo() {
+        video.pause();
+        fadeOut(overlay);
+    }
+
+    function fadeOut(element) {
+        element.style.transition = "opacity 1.5s ease";
+        element.style.opacity = 0;
+        setTimeout(() => {
+            element.style.display = 'none';
+        }, 1500);
+    }
+</script>
+
 </body>
 </html>
