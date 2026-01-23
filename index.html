@@ -12,7 +12,7 @@
             background-color: black; 
             font-family: 'Segoe UI', sans-serif;
             color: white;
-            overflow: hidden; /* Prevents scrolling during intro */
+            overflow-x: hidden;
         }
 
         body::before {
@@ -26,60 +26,64 @@
         /* TOP RIGHT SOCIAL BAR */
         .top-social-bar {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 15px;
-            z-index: 50; /* Sits above background but below video */
+            top: 20px; right: 20px;
+            display: flex; gap: 15px; z-index: 50;
         }
+        .top-social-bar a img { width: 25px; height: 25px; opacity: 0.7; transition: 0.3s; }
+        .top-social-bar a:hover img { opacity: 1; transform: scale(1.2); }
 
-        .top-social-bar a img {
-            width: 25px;
-            height: 25px;
-            opacity: 0.7;
-            transition: 0.3s ease;
-        }
-
-        .top-social-bar a:hover img {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-
-        /* MAIN CONTENT */
-        .content-hub {
-            display: flex;
-            flex-direction: column;
+        /* THE GRID CONTAINER */
+        .universe-grid {
+            display: grid;
+            min-height: 100vh;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            text-align: center;
+            padding: 40px;
+            /* Default for Mobile: Single Column */
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .site-logo {
             width: 100%;
-            max-width: 550px;
+            max-width: 450px;
             height: auto;
-            margin-bottom: 20px;
             filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+            grid-area: logo;
+            margin: 0 auto;
         }
 
-        .nav-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .nav-container a { text-decoration: none; line-height: 0; }
-
-        .main-btn-img {
-            width: 260px; 
+        .nav-btn {
+            width: 200px; /* Slightly smaller to fit more on screen */
             cursor: pointer;
             transition: 0.3s ease;
+            display: block;
+            margin: 0 auto;
         }
 
-        .main-btn-img:hover { transform: scale(1.05); filter: brightness(1.2); }
+        .nav-btn:hover { transform: scale(1.1); filter: brightness(1.2); }
 
-        /* VIDEO OVERLAY */
+        /* U-SHAPE LAYOUT FOR PC */
+        @media (min-width: 1024px) {
+            .universe-grid {
+                grid-template-areas: 
+                    "btn1  logo  btn2"
+                    "btn3  logo  btn4"
+                    " .    btn5   .  ";
+                grid-template-columns: 250px 500px 250px;
+                grid-template-rows: auto auto auto;
+                gap: 30px;
+            }
+
+            /* Assigning Buttons to positions */
+            .area-books { grid-area: btn1; }
+            .area-series { grid-area: btn2; }
+            .area-about { grid-area: btn3; }
+            .area-heroes { grid-area: btn4; }
+            .area-crew { grid-area: btn5; }
+        }
+
+        /* INTRO VIDEO OVERLAY (Kept from previous version) */
         #video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -90,26 +94,15 @@
             align-items: center;
             z-index: 1000;
         }
-
         #intro-video { width: 100%; height: 100%; object-fit: contain; }
-
         #play-btn {
-            position: absolute;
-            padding: 15px 30px;
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            cursor: pointer;
-            z-index: 1001;
+            position: absolute; padding: 15px 30px;
+            background: transparent; color: white; border: 2px solid white;
+            font-size: 1.2rem; letter-spacing: 5px; cursor: pointer; z-index: 1001;
         }
-
         #close-btn {
-            position: absolute;
-            top: 30px; right: 40px;
-            color: white; font-size: 40px; cursor: pointer;
-            z-index: 1001;
+            position: absolute; top: 30px; right: 40px;
+            color: white; font-size: 40px; cursor: pointer; z-index: 1001;
         }
     </style>
 </head>
@@ -126,18 +119,18 @@
 
     <div id="video-overlay">
         <div id="close-btn" onclick="closeVideo()">×</div>
-        <video id="intro-video" playsinline>
-            <source src="intro.mp4" type="video/mp4">
-        </video>
+        <video id="intro-video" playsinline><source src="intro.mp4" type="video/mp4"></video>
         <button id="play-btn" onclick="playWithSound()">ENTER THE UNIVERSE</button>
     </div>
 
-    <div class="content-hub">
+    <div class="universe-grid">
         <img src="logo.png" alt="TCOMWG Logo" class="site-logo">
-        <div class="nav-container">
-            <a href="books.html"><img src="books-button.png" class="main-btn-img"></a>
-            <a href="series.html"><img src="miniseries-button.png" class="main-btn-img"></a>
-        </div>
+
+        <a href="books.html" class="area-books"><img src="books-button.png" class="nav-btn"></a>
+        <a href="series.html" class="area-series"><img src="miniseries-button.png" class="nav-btn"></a>
+        <a href="about.html" class="area-about"><img src="about.png" class="nav-btn"></a>
+        <a href="heroes.html" class="area-heroes"><img src="heroes.png" class="nav-btn"></a>
+        <a href="crew.html" class="area-crew"><img src="our-crew.png" class="nav-btn"></a>
     </div>
 
     <script>
@@ -145,22 +138,12 @@
         const overlay = document.getElementById('video-overlay');
         const playBtn = document.getElementById('play-btn');
 
-        function playWithSound() {
-            playBtn.style.display = 'none';
-            video.play();
-        }
-
+        function playWithSound() { playBtn.style.display = 'none'; video.play(); }
         video.onended = fadeOutOverlay;
-
-        function closeVideo() {
-            video.pause();
-            fadeOutOverlay();
-        }
-
+        function closeVideo() { video.pause(); fadeOutOverlay(); }
         function fadeOutOverlay() {
             overlay.style.transition = "opacity 1.5s ease";
             overlay.style.opacity = 0;
-            document.body.style.overflow = "auto"; // Re-enable scrolling
             setTimeout(() => { overlay.style.display = 'none'; }, 1500);
         }
     </script>
