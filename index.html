@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TCOMWG Universe</title>
     <style>
         body {
@@ -23,67 +23,73 @@
             z-index: -1;
         }
 
-        /* TOP RIGHT SOCIAL BAR */
+        /* 1. SOCIAL BAR (80% Larger) */
         .top-social-bar {
             position: fixed;
-            top: 20px; right: 20px;
-            display: flex; gap: 15px; z-index: 50;
+            top: 25px; right: 25px;
+            display: flex; gap: 20px; z-index: 50;
         }
-        .top-social-bar a img { width: 25px; height: 25px; opacity: 0.7; transition: 0.3s; }
-        .top-social-bar a:hover img { opacity: 1; transform: scale(1.2); }
+        .top-social-bar a img { 
+            width: 45px; /* Increased from 25px (~80% growth) */
+            height: 45px; 
+            opacity: 0.8; 
+            transition: 0.3s ease; 
+        }
+        .top-social-bar a:hover img { opacity: 1; transform: scale(1.1); }
 
-        /* THE GRID CONTAINER */
+        /* 2. THE GRID (Tighter Proximity) */
         .universe-grid {
-            display: grid;
-            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 40px;
-            /* Default for Mobile: Single Column */
-            grid-template-columns: 1fr;
+            justify-content: flex-start;
+            padding: 100px 20px 40px 20px;
             gap: 20px;
+            min-height: 100vh;
         }
 
         .site-logo {
-            width: 100%;
-            max-width: 450px;
+            width: 95%;
+            max-width: 600px; /* Increased logo size */
             height: auto;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
-            grid-area: logo;
-            margin: 0 auto;
+            filter: drop-shadow(0 5px 20px rgba(0,0,0,0.7));
+            margin-bottom: 5px;
         }
 
         .nav-btn {
-            width: 200px; /* Slightly smaller to fit more on screen */
+            width: 230px; 
             cursor: pointer;
             transition: 0.3s ease;
             display: block;
-            margin: 0 auto;
         }
 
-        .nav-btn:hover { transform: scale(1.1); filter: brightness(1.2); }
+        .nav-btn:hover { transform: scale(1.08); filter: brightness(1.2); }
 
-        /* U-SHAPE LAYOUT FOR PC */
+        /* PC VERSION - COMPACT U-SHAPE */
         @media (min-width: 1024px) {
             .universe-grid {
+                display: grid;
                 grid-template-areas: 
                     "btn1  logo  btn2"
                     "btn3  logo  btn4"
                     " .    btn5   .  ";
-                grid-template-columns: 250px 500px 250px;
+                /* Narrowed the center column to bring buttons closer to logo */
+                grid-template-columns: 240px 480px 240px; 
                 grid-template-rows: auto auto auto;
-                gap: 30px;
+                justify-content: center;
+                align-content: center;
+                gap: 15px 10px; /* Reduced gaps to pull buttons in */
+                padding: 20px;
             }
-
-            /* Assigning Buttons to positions */
-            .area-books { grid-area: btn1; }
-            .area-series { grid-area: btn2; }
-            .area-about { grid-area: btn3; }
-            .area-heroes { grid-area: btn4; }
-            .area-crew { grid-area: btn5; }
+            .site-logo { grid-area: logo; margin-bottom: 0; }
+            .area-books { grid-area: btn1; justify-self: end; } /* Pulled inward */
+            .area-series { grid-area: btn2; justify-self: start; } /* Pulled inward */
+            .area-about { grid-area: btn3; justify-self: end; }
+            .area-heroes { grid-area: btn4; justify-self: start; }
+            .area-crew { grid-area: btn5; margin-top: -10px; } /* Lifted upward toward logo */
         }
 
-        /* INTRO VIDEO OVERLAY (Kept from previous version) */
+        /* 3. VIDEO OVERLAY */
         #video-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -96,13 +102,14 @@
         }
         #intro-video { width: 100%; height: 100%; object-fit: contain; }
         #play-btn {
-            position: absolute; padding: 15px 30px;
-            background: transparent; color: white; border: 2px solid white;
-            font-size: 1.2rem; letter-spacing: 5px; cursor: pointer; z-index: 1001;
+            position: absolute; padding: 15px 35px;
+            background: rgba(0,0,0,0.6); color: white; border: 2px solid white;
+            font-size: 1.2rem; letter-spacing: 4px; cursor: pointer; z-index: 1001;
+            bottom: 25%;
         }
         #close-btn {
-            position: absolute; top: 30px; right: 40px;
-            color: white; font-size: 40px; cursor: pointer; z-index: 1001;
+            position: absolute; top: 25px; right: 35px;
+            color: white; font-size: 45px; cursor: pointer; z-index: 1001;
         }
     </style>
 </head>
