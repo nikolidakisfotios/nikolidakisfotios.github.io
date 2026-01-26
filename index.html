@@ -145,19 +145,32 @@
         <a href="crew.html" class="nav-link area-crew"><img src="our-crew.png" class="nav-btn"></a>
     </div>
 
-    <script>
-        const video = document.getElementById('intro-video');
-        const overlay = document.getElementById('video-overlay');
-        const playBtn = document.getElementById('play-btn');
+  <script>
+    const video = document.getElementById('intro-video');
+    const overlay = document.getElementById('video-overlay');
+    const playBtn = document.getElementById('play-btn');
 
-        function playWithSound() { playBtn.style.display = 'none'; video.play(); }
-        video.onended = fadeOutOverlay;
-        function closeVideo() { video.pause(); fadeOutOverlay(); }
-        function fadeOutOverlay() {
-            overlay.style.transition = "opacity 1.5s ease";
-            overlay.style.opacity = 0;
-            setTimeout(() => { overlay.style.display = 'none'; }, 1500);
-        }
-    </script>
+    // Check if the user has already seen the intro during this session
+    if (sessionStorage.getItem('introSeen') === 'true') {
+        overlay.style.display = 'none'; // Skip the video entirely
+    }
+
+    function playWithSound() { 
+        playBtn.style.display = 'none'; 
+        video.play(); 
+    }
+    
+    video.onended = fadeOutOverlay;
+    function closeVideo() { video.pause(); fadeOutOverlay(); }
+    
+    function fadeOutOverlay() {
+        // Mark the session as 'introSeen' so it doesn't play again
+        sessionStorage.setItem('introSeen', 'true');
+        
+        overlay.style.transition = "opacity 1.5s ease";
+        overlay.style.opacity = 0;
+        setTimeout(() => { overlay.style.display = 'none'; }, 1500);
+    }
+</script>
 </body>
 </html>
