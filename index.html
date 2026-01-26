@@ -23,26 +23,23 @@
             z-index: -1;
         }
 
-        /* 1. SOCIAL BAR (80% Larger) */
+        /* 1. SOCIAL BAR (Top Right) */
         .top-social-bar {
             position: fixed;
             top: 25px; right: 25px;
             display: flex; gap: 20px; z-index: 50;
         }
         .top-social-bar a img { 
-            width: 45px; /* Increased from 25px (~80% growth) */
-            height: 45px; 
-            opacity: 0.8; 
-            transition: 0.3s ease; 
+            width: 45px; height: 45px; 
+            opacity: 0.8; transition: 0.3s ease; 
         }
         .top-social-bar a:hover img { opacity: 1; transform: scale(1.1); }
 
-        /* 2. THE GRID (Tighter Proximity) */
+        /* 2. THE GRID CONTAINER */
         .universe-grid {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
             padding: 100px 20px 40px 20px;
             gap: 20px;
             min-height: 100vh;
@@ -50,55 +47,63 @@
 
         .site-logo {
             width: 95%;
-            max-width: 600px; /* Increased logo size */
+            max-width: 580px;
             height: auto;
             filter: drop-shadow(0 5px 20px rgba(0,0,0,0.7));
-            margin-bottom: 5px;
+        }
+
+        /* FORCE ALL BUTTONS TO SAME SIZE */
+        .nav-link {
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
         }
 
         .nav-btn {
-            width: 230px; 
+            width: 240px; /* Locked width for all */
+            height: auto;
             cursor: pointer;
             transition: 0.3s ease;
-            display: block;
         }
 
         .nav-btn:hover { transform: scale(1.08); filter: brightness(1.2); }
 
-        /* PC VERSION - COMPACT U-SHAPE */
+        /* PC VERSION - SYMMETRICAL U-SHAPE */
         @media (min-width: 1024px) {
             .universe-grid {
                 display: grid;
+                /* Define a 3x3 grid area */
                 grid-template-areas: 
                     "btn1  logo  btn2"
                     "btn3  logo  btn4"
-                    " .    btn5   .  ";
-                /* Narrowed the center column to bring buttons closer to logo */
-                grid-template-columns: 240px 480px 240px; 
+                    "  .   btn5   .  ";
+                grid-template-columns: 280px 500px 280px; 
                 grid-template-rows: auto auto auto;
                 justify-content: center;
                 align-content: center;
-                gap: 15px 10px; /* Reduced gaps to pull buttons in */
+                gap: 10px 0px; 
                 padding: 20px;
             }
-            .site-logo { grid-area: logo; margin-bottom: 0; }
-            .area-books { grid-area: btn1; justify-self: end; } /* Pulled inward */
-            .area-series { grid-area: btn2; justify-self: start; } /* Pulled inward */
-            .area-about { grid-area: btn3; justify-self: end; }
-            .area-heroes { grid-area: btn4; justify-self: start; }
-            .area-crew { grid-area: btn5; margin-top: -10px; } /* Lifted upward toward logo */
+            .site-logo { grid-area: logo; margin: 0 auto; }
+            
+            .area-books { grid-area: btn1; align-self: end; justify-self: center; }
+            .area-series { grid-area: btn2; align-self: end; justify-self: center; }
+            .area-about { grid-area: btn3; align-self: start; justify-self: center; }
+            .area-heroes { grid-area: btn4; align-self: start; justify-self: center; }
+            
+            /* Center the Crew button perfectly in the middle column */
+            .area-crew { 
+                grid-area: btn5; 
+                justify-self: center; 
+                margin-top: -20px; /* Pulls it up closer to the logo base */
+            }
         }
 
-        /* 3. VIDEO OVERLAY */
+        /* 3. VIDEO OVERLAY (No Changes) */
         #video-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: black; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; z-index: 1000;
         }
         #intro-video { width: 100%; height: 100%; object-fit: contain; }
         #play-btn {
@@ -133,11 +138,11 @@
     <div class="universe-grid">
         <img src="logo.png" alt="TCOMWG Logo" class="site-logo">
 
-        <a href="books.html" class="area-books"><img src="books-button.png" class="nav-btn"></a>
-        <a href="series.html" class="area-series"><img src="miniseries-button.png" class="nav-btn"></a>
-        <a href="about.html" class="area-about"><img src="about.png" class="nav-btn"></a>
-        <a href="heroes.html" class="area-heroes"><img src="heroes.png" class="nav-btn"></a>
-        <a href="crew.html" class="area-crew"><img src="our-crew.png" class="nav-btn"></a>
+        <a href="books.html" class="nav-link area-books"><img src="books-button.png" class="nav-btn"></a>
+        <a href="series.html" class="nav-link area-series"><img src="miniseries-button.png" class="nav-btn"></a>
+        <a href="about.html" class="nav-link area-about"><img src="about.png" class="nav-btn"></a>
+        <a href="heroes.html" class="nav-link area-heroes"><img src="heroes.png" class="nav-btn"></a>
+        <a href="crew.html" class="nav-link area-crew"><img src="our-crew.png" class="nav-btn"></a>
     </div>
 
     <script>
