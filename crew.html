@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCOMWG - Our Crew</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: url('background.png') no-repeat center center fixed; 
+            background-size: cover;
+            background-color: black; 
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); 
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .header { text-align: center; margin-bottom: 60px; }
+
+        .back-home {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            border: 1px solid white;
+            padding: 10px 25px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .back-home:hover { background: white; color: black; }
+
+        /* THE CREW ROW SETUP */
+        .crew-member {
+            display: flex;
+            flex-direction: column; /* Mobile Default: Stacked */
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .crew-member:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.3); }
+
+        @media (min-width: 768px) {
+            .crew-member {
+                flex-direction: row; /* PC View: Side by Side */
+                text-align: left;
+                align-items: flex-start;
+            }
+        }
+
+        .crew-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%; /* Makes them circular and elegant */
+            border: 3px solid white;
+            margin-bottom: 20px;
+        }
+
+        @media (min-width: 768px) {
+            .crew-img {
+                margin-bottom: 0;
+                margin-right: 40px;
+                flex-shrink: 0;
+            }
+        }
+
+        .crew-info h2 {
+            margin-top: 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .crew-info p {
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-home">Return to Hub</a>
+            <h1 style="margin-top: 50px; letter-spacing: 10px; text-transform: uppercase;">Our Crew</h1>
+        </div>
+
+        <div class="crew-member">
+            <img src="fotios.png" alt="Fotios" class="crew-img">
+            <div class="crew-info">
+                <h2>Fotios</h2>
+                <p>
+                  The seeds of the Chronicles of the Milky Way Galaxy were first sown twenty-six years ago, when the author was just fifteen. What began as a spark of adolescent imagination transformed into a lifelong pursuit of cosmic world-building. For the first two decades, the work was a silent, internal labor—a meticulous process of constructing a universe from the Big Bang (Year 0 eo) to the height of the Thiran Empire, ensuring that every law of physics, every alien biology, and every political tithe was mathematically and logically sound.
+
+After twenty years of refining the timeline and the lore, the project has transitioned from the mind to the page. We are now in the era of manifestation.
+
+The result is a sprawling six-book epic and a collection of novellas that challenge the boundaries of sci-fi and fantasy. The author’s writing is defined by its massive scale, "show, don't tell" cinematic prose, and a gritty exploration of sovereignty versus stability. Having spent more than half a lifetime living within this galaxy, the author doesn't just write these stories—he documents a living history that has been twenty-six years in the making.
+                </p>
+            </div>
+        </div>
+
+        <div class="crew-member">
+            <img src="panos.png" alt="Panos" class="crew-img">
+            <div class="crew-info">
+                <h2>Panagiotis Roumeliotis</h2>
+                <p>
+                    Raised in the shadow of giants like Tolkien, Herbert, and Lovecraft, Panagioths has spent a lifetime navigating the limitless reaches of speculative fiction. From the cosmic horrors of the void to the intricate political webs of Asimov and Corey, his personal philosophy is deeply rooted in the genre’s most legendary mythos. After years of collaborating with various prestigious sci-fi publications, he now serves as the Community Manager and Agent for The Chronicles of the Milky Way. In this role, he acts as a vital bridge between worlds, connecting creators with readers to bring expansive, new universes to life.
+                </p>
+            </div>
+        </div>
+
+        <div class="crew-member">
+            <img src="thanos.png" alt="Thanos" class="crew-img">
+            <div class="crew-info">
+                <h2>Thanos Hatzidimitriou</h2>
+                <p>
+                    Thanos brings a rare combination of seasoned marketing insight and cutting-edge technical execution to the table. Having built his career in traditional creative roles, he has successfully evolved alongside the digital landscape, leveraging AI to scale narratives into shareable, immersive realities. For The Chronicles of the Milky Way, he serves as the bridge between literature and visual media, using AI-driven video, music, and branding to guide audiences back to the heart of the saga. He remains a firm believer that AI is at its most potent when guided by an experienced hand.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
