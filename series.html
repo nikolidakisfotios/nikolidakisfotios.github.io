@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCOMWG - Miniseries</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: url('background.png') no-repeat center center fixed; 
+            background-size: cover;
+            background-color: black; 
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7); 
+            z-index: -1;
+        }
+
+        .header {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .back-home {
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            border: 1px solid white;
+            padding: 10px 25px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .back-home:hover { background: white; color: black; }
+
+        /* THE DYNAMIC GRID */
+        .series-grid {
+            display: grid;
+            gap: 50px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            /* Default: 1 column for mobile */
+            grid-template-columns: 1fr;
+            justify-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .series-grid {
+                /* PC: 3 columns that grow rows automatically */
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .story-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.4s ease;
+        }
+
+        .story-item:hover { transform: scale(1.05); }
+
+        .story-cover {
+            width: 260px; /* Slightly wider than book covers for variety */
+            height: 380px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.9);
+            border: 1px solid rgba(255,255,255,0.15);
+            cursor: pointer;
+        }
+
+        .story-title {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-home">Return to Hub</a>
+        <h1 style="margin-top: 50px; letter-spacing: 12px; text-transform: uppercase;">Miniseries</h1>
+    </div>
+
+    <div class="series-grid">
+        
+        <div class="story-item">
+            <a href="thedoll.pdf" target="_blank">
+                <img src="thedoll.png" alt="The Doll" class="story-cover">
+            </a>
+            <div class="story-title">The Doll</div>
+        </div>
+
+        <div class="story-item">
+            <a href="theparadoxbomb.pdf" target="_blank">
+                <img src="theparadoxbomb.png" alt="The Paradox Bomb" class="story-cover">
+            </a>
+            <div class="story-title">The Paradox Bomb</div>
+        </div>
+
+        <div class="story-item">
+            <a href="anewbegining.pdf" target="_blank">
+                <img src="anewbegining.png" alt="A New Beginning" class="story-cover">
+            </a>
+            <div class="story-title">A New Beginning</div>
+        </div>
+
+        </div>
+
+</body>
+</html>
