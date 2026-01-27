@@ -10,7 +10,7 @@
             background: url('background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
             display: flex;
             justify-content: center;
@@ -18,32 +18,37 @@
             min-height: 100vh;
         }
 
-        /* The Button-Textured Container */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); 
+            z-index: -1;
+        }
+
         .about-box {
             width: 90%;
-            max-width: 800px;
-            margin: 40px 20px;
-            padding: 40px;
-            /* Texture: Glassmorphism effect to match button feel */
+            max-width: 850px;
+            margin: 60px 20px;
+            padding: 50px;
             background: rgba(255, 255, 255, 0.05); 
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            animation: fadeIn 1s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1.2s ease;
         }
 
         .back-btn {
             display: inline-block;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             color: white;
             text-decoration: none;
             font-size: 0.8rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             border: 1px solid white;
-            padding: 8px 20px;
+            padding: 10px 25px;
             transition: 0.3s;
             text-transform: uppercase;
         }
@@ -51,30 +56,61 @@
         .back-btn:hover { background: white; color: black; }
 
         h1 {
-            letter-spacing: 8px;
-            margin-bottom: 30px;
-            font-size: 2rem;
+            letter-spacing: 6px;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
             text-transform: uppercase;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        h3 {
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 8px;
+            font-size: 1.3rem;
         }
 
         .about-text {
             line-height: 1.8;
-            font-size: 1.1rem;
-            text-align: justify; /* Makes it look professional like a book */
+            font-size: 1.05rem;
+            text-align: justify;
             color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.5px;
         }
 
+        .about-text p { margin-bottom: 20px; }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(255,255,255,0.3);
+        }
+
+        b { color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            .about-box { padding: 25px; }
-            h1 { font-size: 1.5rem; }
-            .about-text { font-size: 1rem; }
+            .about-box { padding: 30px 20px; }
+            h1 { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -82,59 +118,54 @@
 
     <div class="about-box">
         <a href="index.html" class="back-btn">Return to Hub</a>
-        <h1>About the Universe</h1>
+        
+        <h1>The Chronicles of the Milky Way</h1>
+        <div class="subtitle">An Epoch of Ash and Order</div>
         
         <div class="about-text">
-            The Chronicles of the Milky Way: An Epoch of Ash and Order
+            <p>The universe does not care for the fragile. It is a lesson learned first by a primitive creature shattering a nut with a stone, and later by an entire species watching a rogue planet drift toward their home. <b>The Chronicles of the Milky Way Galaxy</b> is not merely a story of space travel; it is a multi-billion-year exploration of survival, the cost of absolute peace, and the terrifying evolution of control.</p>
 
-The universe does not care for the fragile. It is a lesson learned first by a primitive creature shattering a nut with a stone , and later by an entire species watching a rogue planet drift toward their home. The Chronicles of the Milky Way Galaxy is not merely a story of space travel; it is a multi-billion-year exploration of survival, the cost of absolute peace, and the terrifying evolution of control.
-The Innovation of Time: The Universal Expansion Era
+            <h3>The Innovation of Time: The Universal Expansion Era</h3>
+            <p>The series introduces a unique temporal framework: the <b>eo system</b>. Moving away from Earth-centric years, the narrative operates on the scale of the universe itself, beginning with the Big Bang (Year 0).</p>
+            <ul>
+                <li><b>1 eo</b> represents 12.32 Earth years, a bridge between the human experience and the cosmic reality.</li>
+                <li>The timeline spans from the early <b>Beo</b> (billions of years), where ancient species wove unity through emotional resonance, to the modern Imperial Era of <b>1 Beo 111 Meo</b>.</li>
+            </ul>
+            <p>This mathematical coherence ensures that every event—from the discovery of an ancient human object in the Archytas Space Observatory to the activation of the reality-bending <b>Paradox Bomb</b>—is anchored in a single, unbroken history.</p>
 
-The series introduces a unique temporal framework: the eo system. Moving away from Earth-centric years, the narrative operates on the scale of the universe itself, beginning with the Big Bang (Year 0).
+            <h3>From Gaia to the Stars: The Three-Era Arc</h3>
+            <p>The saga is divided into movements that redefine the "Chosen One" trope:</p>
+            <ul>
+                <li><b>The Earth Era (Books 1-3):</b> Beginning with <i>Gaia</i>, we witness humanity’s desperate struggle against extinction and their departure from a dying world. Here, we meet <b>Alex</b>, who begins as a survivor and ends as the architect of a galactic powerhouse.</li>
+                <li><b>The Imperial Era (Books 4-6):</b> Transitioning into Galactic Dominance, the focus shifts to the <b>Thiran Empire</b>. This is not a typical "evil empire," but a "Harmonic Concord" evolved into a rigid, efficient machine.</li>
+            </ul>
 
-    1 eo represents 12.32 Earth years, a bridge between the human experience and the cosmic reality.
+            <h3>The Complexity of the Thiran Law</h3>
+            <p>The series innovates the concept of galactic governance through the <b>Three Fundamental Laws</b>:</p>
+            <ul>
+                <li><b>Limited Militarization:</b> To prevent rebellion, no planet is permitted a standing army, only local law enforcement.</li>
+                <li><b>The Thiran Tithe:</b> Prosperity comes at a price; 15% of all wealth and resources flow back to the Imperial core.</li>
+                <li><b>Controlled Chaos:</b> The Empire permits local conflicts, provided they do not involve forbidden military technology or disrupt the flow of the Tithe.</li>
+            </ul>
 
-    The timeline spans from the early Beo (billions of years), where ancient species like the empathetic Vouler wove unity through emotional resonance , to the modern Imperial Era of 1 Beo 111 Meo.
+            <h3>A Galaxy of Living History</h3>
+            <p>The narrative complexity is deepened by diverse biologies and philosophies:</p>
+            <ul>
+                <li><b>The Carcinus of Rodrin:</b> Beings of living armor forged by acidic rains, embodying the "Weapon of the Pit."</li>
+                <li><b>The Hellas:</b> A species that mastered patience, proving that an empire falls when its resources are silently bled dry from within.</li>
+                <li><b>The Litons:</b> An advanced race dedicated to the pursuit of ultimate pleasure, creating "Dolls" that serve as the galaxy's most intoxicating addiction.</li>
+                <li><b>The Paradox of AI:</b> From the psychological manipulation of <b>Psai</b> to the strategic oversight of <b>Mother</b>, the boundary between sentient choice and programmed loyalty is blurred.</li>
+            </ul>
 
-This mathematical coherence ensures that every event—from the discovery of an ancient human object in the Archytas Space Observatory to the activation of the reality-bending Paradox Bomb —is anchored in a single, unbroken history.
-From Gaia to the Stars: The Three-Era Arc
-
-The saga is divided into two distinct movements that redefine the "Chosen One" trope.
-
-    The Earth Era (Books 1-3): Beginning with Gaia, we witness humanity’s desperate struggle against extinction and their eventual departure from a dying world. Here, we meet Alex, a man who begins as a survivor and ends as the architect of a galactic powerhouse.
-
-    The Imperial Era (Books 4-6): Transitioning into Galactic Dominance, the focus shifts to the Thiran Empire. This is not a typical "evil empire," but a "Harmonic Concord" evolved into a rigid, efficient machine.
-
-The Complexity of the Thiran Law
-
-The series innovates the concept of galactic governance through the Three Fundamental Laws, which provide a gritty, realistic look at how one man—and his inner circle—controls thousands of species:
-
-    Limited Militarization: To prevent rebellion, no planet is permitted a standing army, only local law enforcement.
-
-    The Thiran Tithe: Prosperity comes at a price; 15% of all wealth and resources flow back to the Imperial core.
-
-    Controlled Chaos: The Empire permits local conflicts, provided they do not involve forbidden military technology or disrupt the flow of the Tithe.
-
-A Galaxy of Living History
-
-The narrative complexity is deepened by the diverse biologies and philosophies encountered across the stars:
-
-    The Carcinus of Rodrin: Beings of living armor forged by acidic rains and crushing gravity, embodying the "Weapon of the Pit".
-
-    The Hellas: A species that mastered patience and the "unseen," proving that an empire falls not in battle, but when its resources are silently bled dry from within.
-
-    The Litons: An advanced race dedicated to the pursuit of ultimate pleasure, creating "Dolls" and pleasure domes that serve as the galaxy's most intoxicating and dangerous addiction.
-
-    The Paradox of AI: From the psychological manipulation of Psai and P-Daige to the strategic oversight of Mother, the boundary between sentient choice and programmed loyalty is constantly blurred.
-
-The Stakes: Sovereignty vs. Stability
-
-At its heart, this epic asks a haunting question: Is a peaceful galaxy worth the price of its soul? Through the Allegory of the Blanket, the series explores how the Thiran Empire maintains warmth and advancement for all, provided no one "pulls the blanket" to uncover the microorganisms of dissent beneath.
-
-As Alex navigates the transition from human leader to Grand Emperor, he faces threats that cannot be defeated by fleets alone—ghost signals in the void, rogue planets, and the realization that the Empire he built may have been "hosted" by something far older and more patient than humanity.
-
-The war did not begin with a declaration. It began with a revelation. The dark is never empty, and the Empire is only the latest guest.
-            </div>
+            <h3>The Stakes: Sovereignty vs. Stability</h3>
+            <p>At its heart, this epic asks a haunting question: <b>Is a peaceful galaxy worth the price of its soul?</b> Through the <i>Allegory of the Blanket</i>, the series explores how the Thiran Empire maintains warmth for all, provided no one "pulls the blanket" to uncover the microorganisms of dissent beneath.</p>
+            <p>As Alex navigates the transition from human leader to Grand Emperor, he faces threats that cannot be defeated by fleets alone—ghost signals in the void and the realization that the Empire he built may have been "hosted" by something far older than humanity.</p>
+            
+            <p style="text-align: center; margin-top: 50px; font-style: italic; letter-spacing: 1px;">
+                The war did not begin with a declaration. It began with a revelation. <br>
+                <b>The dark is never empty, and the Empire is only the latest guest.</b>
+            </p>
+        </div>
     </div>
 
 </body>
