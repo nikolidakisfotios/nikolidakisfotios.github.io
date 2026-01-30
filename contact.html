@@ -1,6 +1,150 @@
-<form action="https://formspree.io/f/xpqryake" method="POST">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-    <button type="submit">SEND SIGNAL</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCOMWG - Subspace Transmission</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: url('background.png') no-repeat center center fixed; 
+            background-size: cover;
+            background-color: black; 
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* The Glassmorphism Box */
+        .contact-box {
+            width: 90%;
+            max-width: 600px;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 35px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            border: 1px solid white;
+            padding: 10px 25px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .back-btn:hover { background: white; color: black; }
+
+        h2 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* Form Styling */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        label {
+            text-align: left;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: -10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: white;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 18px;
+            background: white;
+            color: black;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #adb5bd;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contact-box">
+        <a href="index.html" class="back-btn">Return to Hub</a>
+        
+        <h2>Subspace Transmission</h2>
+        <p class="subtitle">Direct frequency to the Imperial Core</p>
+
+        <form action="https://formspree.io/f/xpqryake" method="POST">
+            
+            <label>How would you like us to call you?</label>
+            <input type="text" name="name" required placeholder="Enter Name or Designation...">
+
+            <label>Email Frequency</label>
+            <input type="email" name="email" required placeholder="Return Address...">
+
+            <label>Transmission Details</label>
+            <textarea name="message" rows="6" required placeholder="Type your message here..."></textarea>
+
+            <input type="hidden" name="_next" value="https://tcomwg.com/index.html">
+
+            <button type="submit">Send to Empire</button>
+        </form>
+    </div>
+
+</body>
+</html>
