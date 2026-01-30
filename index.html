@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N1F07XJXTK');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N1F07XJXTK');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -34,7 +31,7 @@
             z-index: -1;
         }
 
-        /* 1. SOCIAL BAR (Top Right) */
+        /* 1. SOCIAL BAR */
         .top-social-bar {
             position: fixed;
             top: 25px; right: 25px;
@@ -63,7 +60,6 @@
             filter: drop-shadow(0 5px 20px rgba(0,0,0,0.7));
         }
 
-        /* FORCE ALL BUTTONS TO SAME SIZE */
         .nav-link {
             text-decoration: none;
             display: flex;
@@ -71,7 +67,7 @@
         }
 
         .nav-btn {
-            width: 240px; /* Locked width for all */
+            width: 240px; 
             height: auto;
             cursor: pointer;
             transition: 0.3s ease;
@@ -79,38 +75,35 @@
 
         .nav-btn:hover { transform: scale(1.08); filter: brightness(1.2); }
 
-        /* PC VERSION - SYMMETRICAL U-SHAPE */
+        /* PC VERSION - SYMMETRICAL LAYOUT */
         @media (min-width: 1024px) {
             .universe-grid {
                 display: grid;
-                /* Define a 3x3 grid area */
+                /* Updated Grid Areas for 6 buttons */
                 grid-template-areas: 
                     "btn1  logo  btn2"
                     "btn3  logo  btn4"
-                    "  .   btn5   .  ";
+                    "btn5  logo  btn6";
                 grid-template-columns: 280px 500px 280px; 
                 grid-template-rows: auto auto auto;
                 justify-content: center;
                 align-content: center;
-                gap: 10px 0px; 
+                gap: 20px 0px; 
                 padding: 20px;
             }
             .site-logo { grid-area: logo; margin: 0 auto; }
             
             .area-books { grid-area: btn1; align-self: end; justify-self: center; }
             .area-series { grid-area: btn2; align-self: end; justify-self: center; }
-            .area-about { grid-area: btn3; align-self: start; justify-self: center; }
-            .area-heroes { grid-area: btn4; align-self: start; justify-self: center; }
+            .area-about { grid-area: btn3; align-self: center; justify-self: center; }
+            .area-heroes { grid-area: btn4; align-self: center; justify-self: center; }
             
-            /* Center the Crew button perfectly in the middle column */
-            .area-crew { 
-                grid-area: btn5; 
-                justify-self: center; 
-                margin-top: -20px; /* Pulls it up closer to the logo base */
-            }
+            /* Symmetrical Bottom Row */
+            .area-crew { grid-area: btn5; align-self: start; justify-self: center; }
+            .area-contact { grid-area: btn6; align-self: start; justify-self: center; }
         }
 
-        /* 3. VIDEO OVERLAY (No Changes) */
+        /* 3. VIDEO OVERLAY */
         #video-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: black; display: flex; flex-direction: column;
@@ -154,16 +147,16 @@
         <a href="about.html" class="nav-link area-about"><img src="about.png" class="nav-btn"></a>
         <a href="heroes.html" class="nav-link area-heroes"><img src="heroes.png" class="nav-btn"></a>
         <a href="crew.html" class="nav-link area-crew"><img src="our-crew.png" class="nav-btn"></a>
+        <a href="contact.html" class="nav-link area-contact"><img src="contact.png" class="nav-btn"></a>
     </div>
 
-  <script>
+<script>
     const video = document.getElementById('intro-video');
     const overlay = document.getElementById('video-overlay');
     const playBtn = document.getElementById('play-btn');
 
-    // Check if the user has already seen the intro during this session
     if (sessionStorage.getItem('introSeen') === 'true') {
-        overlay.style.display = 'none'; // Skip the video entirely
+        overlay.style.display = 'none';
     }
 
     function playWithSound() { 
@@ -175,9 +168,7 @@
     function closeVideo() { video.pause(); fadeOutOverlay(); }
     
     function fadeOutOverlay() {
-        // Mark the session as 'introSeen' so it doesn't play again
         sessionStorage.setItem('introSeen', 'true');
-        
         overlay.style.transition = "opacity 1.5s ease";
         overlay.style.opacity = 0;
         setTimeout(() => { overlay.style.display = 'none'; }, 1500);
