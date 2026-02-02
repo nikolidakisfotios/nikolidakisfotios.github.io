@@ -2,6 +2,22 @@
 <html lang="en">
 <head>
     
+<script>
+    // Disable right-click globally
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable keyboard shortcuts for copying or viewing source
+    document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || // Ctrl+C
+             e.keyCode === 85 || // Ctrl+U
+             e.keyCode === 83 || // Ctrl+S
+             e.keyCode === 73)) { // Ctrl+Shift+I (Inspect)
+            return false;
+        }
+    };
+</script>
+    
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
 <script>
