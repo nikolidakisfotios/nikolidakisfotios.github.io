@@ -15,7 +15,8 @@
     <style>
         body {
             margin: 0; padding: 0;
-            background: url('background.png') no-repeat center center fixed; 
+            /* UI Path Update */
+            background: url('assets/images/ui/background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
             font-family: 'Segoe UI', sans-serif;
@@ -79,7 +80,6 @@
         @media (min-width: 1024px) {
             .universe-grid {
                 display: grid;
-                /* Updated Grid Areas for 6 buttons */
                 grid-template-areas: 
                     "btn1  logo  btn2"
                     "btn3  logo  btn4"
@@ -97,8 +97,6 @@
             .area-series { grid-area: btn2; align-self: end; justify-self: center; }
             .area-about { grid-area: btn3; align-self: center; justify-self: center; }
             .area-heroes { grid-area: btn4; align-self: center; justify-self: center; }
-            
-            /* Symmetrical Bottom Row */
             .area-crew { grid-area: btn5; align-self: start; justify-self: center; }
             .area-contact { grid-area: btn6; align-self: start; justify-self: center; }
         }
@@ -125,29 +123,29 @@
 <body>
 
     <div class="top-social-bar">
-        <a href="https://www.facebook.com/profile.php?id=100065114790871" target="_blank"><img src="facebook.png"></a>
-        <a href="https://www.instagram.com/tcomwg?igsh=MXRqc3FpOHN2amMyNg==" target="_blank"><img src="instagram.png"></a>
-        <a href="https://www.tiktok.com/@tcomwg?is_from_webapp=1&sender_device=pc" target="_blank"><img src="tiktok.png"></a>
-        <a href="https://www.reddit.com/user/tcomwg/" target="_blank"><img src="reddit.png"></a>
-        <a href="https://www.royalroad.com/profile/508286/fictions" target="_blank"><img src="royalroad.png"></a>
-        <a href="https://www.wattpad.com/story/376132462-the-chronicles-of-the-milky-way-galaxy-gaia" target="_blank"><img src="wattpad.png"></a>
+        <a href="https://www.facebook.com/profile.php?id=100065114790871" target="_blank"><img src="assets/images/ui/facebook.png"></a>
+        <a href="https://www.instagram.com/tcomwg?igsh=MXRqc3FpOHN2amMyNg==" target="_blank"><img src="assets/images/ui/instagram.png"></a>
+        <a href="https://www.tiktok.com/@tcomwg?is_from_webapp=1&sender_device=pc" target="_blank"><img src="assets/images/ui/tiktok.png"></a>
+        <a href="https://www.reddit.com/user/tcomwg/" target="_blank"><img src="assets/images/ui/reddit.png"></a>
+        <a href="https://www.royalroad.com/profile/508286/fictions" target="_blank"><img src="assets/images/ui/royalroad.png"></a>
+        <a href="https://www.wattpad.com/story/376132462-the-chronicles-of-the-milky-way-galaxy-gaia" target="_blank"><img src="assets/images/ui/wattpad.png"></a>
     </div>
 
     <div id="video-overlay">
         <div id="close-btn" onclick="closeVideo()">×</div>
-        <video id="intro-video" playsinline><source src="intro.mp4" type="video/mp4"></video>
+        <video id="intro-video" playsinline><source src="assets/videos/intro.mp4" type="video/mp4"></video>
         <button id="play-btn" onclick="playWithSound()">ENTER THE UNIVERSE</button>
     </div>
 
     <div class="universe-grid">
-        <img src="logo.png" alt="TCOMWG Logo" class="site-logo">
+        <img src="assets/images/ui/logo.png" alt="TCOMWG Logo" class="site-logo">
 
-        <a href="books.html" class="nav-link area-books"><img src="books-button.png" class="nav-btn"></a>
-        <a href="series.html" class="nav-link area-series"><img src="miniseries-button.png" class="nav-btn"></a>
-        <a href="about.html" class="nav-link area-about"><img src="about.png" class="nav-btn"></a>
-        <a href="heroes.html" class="nav-link area-heroes"><img src="heroes.png" class="nav-btn"></a>
-        <a href="crew.html" class="nav-link area-crew"><img src="our-crew.png" class="nav-btn"></a>
-        <a href="contact.html" class="nav-link area-contact"><img src="contact.png" class="nav-btn"></a>
+        <a href="books.html" class="nav-link area-books"><img src="assets/images/ui/books-button.png" class="nav-btn"></a>
+        <a href="series.html" class="nav-link area-series"><img src="assets/images/ui/miniseries-button.png" class="nav-btn"></a>
+        <a href="about.html" class="nav-link area-about"><img src="assets/images/ui/about.png" class="nav-btn"></a>
+        <a href="heroes.html" class="nav-link area-heroes"><img src="assets/images/ui/heroes.png" class="nav-btn"></a>
+        <a href="crew.html" class="nav-link area-crew"><img src="assets/images/ui/our-crew.png" class="nav-btn"></a>
+        <a href="contact.html" class="nav-link area-contact"><img src="assets/images/ui/contact.png" class="nav-btn"></a>
     </div>
 
 <script>
