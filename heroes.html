@@ -1,231 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N1F07XJXTK');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N1F07XJXTK');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCOMWG - Hero Archives</title>
-   /* Container for all heroes */
-.heroes-grid {
-    display: grid;
-    /* This line tells the browser: "Make columns at least 300px wide, 
-       but fit as many as possible in one row" */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    padding: 40px 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
+    
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Individual Hero Card */
-.hero-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    display: flex;
-    flex-direction: column; /* Stacks image on top of text */
-    height: 100%; /* Keeps cards same height */
-}
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.hero-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.4);
-}
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
 
-/* Force the image to stay small and centered */
-.hero-image {
-    width: 100%;
-    height: 250px; /* Locked height so all images match */
-    object-fit: cover; /* Crops image to fit the box without stretching */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+        .back-home {
+            color: #aaa;
+            text-decoration: none;
+            border: 1px solid #444;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
 
-/* Text area inside the card */
-.hero-info {
-    padding: 20px;
-    text-align: left;
-}
+        .back-home:hover {
+            background: white;
+            color: black;
+        }
 
-.hero-info h3 {
-    margin: 0 0 10px 0;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #fff;
-}
+        /* The Grid Logic */
+        .heroes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
 
-.origin, .role {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 2px 0;
-    font-weight: bold;
-}
+        /* Individual Hero Card */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
 
-.bio {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-top: 15px;
-    color: rgba(255, 255, 255, 0.9);
-}
+        .hero-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-info {
+            padding: 20px;
+        }
+
+        .hero-info h3 {
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        .origin, .role {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin: 2px 0;
+            font-weight: bold;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #ddd;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
 
     <div class="container">
         <div class="header">
             <a href="index.html" class="back-home">Return to Hub</a>
-            <h1 style="margin-top: 50px; letter-spacing: 12px; text-transform: uppercase;">Hero Archives</h1>
+            <h1 style="letter-spacing: 12px; text-transform: uppercase;">Hero Archives</h1>
         </div>
 
-        <div class="hero-grid">
+        <div class="heroes-grid">
 
             <div class="hero-card">
-                <img src="alex.png" alt="Alex" class="hero-img">
+                <img src="alex.png" alt="Alex" class="hero-image">
                 <div class="hero-info">
-                    <h2>Alex</h2>
-                    <div class="data-point">Origin: <span>Earth Era</span></div>
-                    <div class="data-point">Era: <span>Earth Era to Imperial Era</span></div>
-                    <div class="data-point">Title: <span>Grand Emperor of the Thiran Empire</span></div>
-                    
-                    <div class="hero-desc">
-                        <p><b>The Architect of Empire.</b> Alex is the central figure around whom the fate of the Milky Way rotates. Beginning as a survivor in the desperate final days of Earth, his trajectory from a human leader to the immortal Grand Emperor is the backbone of the saga.</p>
-                        <p>A visionary of cold, pragmatic genius, Alex realized early on that for life to survive the chaos of the cosmos, it required a "Blanket" of absolute order.</p>
-                        <p>He is the architect of the Three Fundamental Laws and the founder of Thira. While often viewed as a cold autocrat, Alex’s motivations are rooted in a deep-seated obsession with evolution and the preservation of sentient life against external threats—be they rogue planets or ancient, hidden masters.</p>
-                    </div>
+                    <h3>Alex</h3>
+                    <p class="origin">Origin: Earth Era</p>
+                    <p class="role">Grand Emperor of Thira</p>
+                    <p class="bio">The Architect of Empire. Alex transitioned from a human leader to an immortal autocrat, driven by a pragmatic obsession with the preservation of sentient life.</p>
                 </div>
             </div>
 
             <div class="hero-card">
-                <img src="jain.png" alt="Jain" class="hero-img">
+                <img src="jain.png" alt="Jain" class="hero-image">
                 <div class="hero-info">
-                    <h2>Jain</h2>
-                    <div class="data-point">Origin: <span>Earth Era</span></div>
-                    <div class="data-point">Era: <span>Earth Era to Imperial Era</span></div>
-                    <div class="data-point">Title: <span>The Imperial Confidante / Keeper of the Core</span></div>
-                    
-                    <div class="hero-desc">
-                        <p><b>The Anchor of Humanity.</b> Jain stands as the essential counterbalance to Alex’s grand ambitions. From the earliest days of Project Gaia, she was the one who could see the man behind the Emperor.</p>
-                        <p>Where Alex looks at the galaxy in terms of logistics, tithes, and evolution, Jain remains connected to the individual cost of those decisions.</p>
-                        <p>As one of the few humans to bridge the gap between the death of Earth and the height of the Empire, she serves as a repository of human history and emotion. In the Imperial Era, her presence is a stabilizing force within Alex’s inner circle, often acting as the silent conscience of the throne.</p>
-                    </div>
+                    <h3>Jain</h3>
+                    <p class="origin">Origin: Earth Era</p>
+                    <p class="role">The Imperial Confidante</p>
+                    <p class="bio">The Anchor of Humanity. Jain serves as the counterbalance to Alex’s grand ambitions, acting as the repository of human emotion and the silent conscience of the throne.</p>
                 </div>
             </div>
-<div class="heroes-grid">
 
-    <div class="hero-card">
-        <img src="bara.png" alt="Bara" class="hero-image">
-        <div class="hero-info">
-            <h3>Bara</h3>
-            <p class="origin">Origin: Earth (Jordan)</p>
-            <p class="role">Commander of Military Operations</p>
-            <p class="bio">A man of iron discipline and tactical foresight. In the chaos following the Earth’s impact, Bara was the wall between order and extinction. He is the silent architect of Thira’s security and power infrastructure.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="clive.png" alt="Clive" class="hero-image">
-        <div class="hero-info">
-            <h3>Clive</h3>
-            <p class="origin">Origin: Earth (England)</p>
-            <p class="role">Elite Pilot & Survival Navigator</p>
-            <p class="bio">The heartbeat of the journey to Gaia. A pilot whose nerves never frayed during the Great Impact, he was responsible for the harrowing transport of the "chosen" to the safety of the stars.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="dimitri.png" alt="Dimitri" class="hero-image">
-        <div class="hero-info">
-            <h3>Dimitri</h3>
-            <p class="origin">Origin: Earth (Russia)</p>
-            <p class="role">Lead Historian & Cultural Archivist</p>
-            <p class="bio">The guardian of collective memory. Dimitri ensures that while humans become Thiran, they do not forget the lessons of the old Earth, translating past failures into the laws of the new Empire.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="eldon.png" alt="Eldon" class="hero-image">
-        <div class="hero-info">
-            <h3>Eldon</h3>
-            <p class="origin">Origin: Earth (England)</p>
-            <p class="role">Chief Communications Officer</p>
-            <p class="bio">The voice in the dark. Eldon managed the fragile threads of human connection during the early days of Gaia. He is the filter through which all news—good or catastrophic—must pass.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="habo.png" alt="Habo" class="hero-image">
-        <div class="hero-info">
-            <h3>Habo</h3>
-            <p class="origin">Origin: Alpaz / Orcish Lineage</p>
-            <p class="role">Tribal Leader & First Contact Catalyst</p>
-            <p class="bio">A bridge between the Thiran "Circle" and indigenous species. His leadership proved that the Empire could integrate diverse biologies through respect rather than just conquest.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="hypatia.png" alt="Hypatia" class="hero-image">
-        <div class="hero-info">
-            <h3>Hypatia</h3>
-            <p class="origin">Origin: Earth (Greece)</p>
-            <p class="role">Chief Astrophysicist</p>
-            <p class="bio">Named after the ancient scholar, she maps the heavens. Her calculations allowed the Gaia mission to navigate Oort cloud anomalies, turning mathematical certainty into Imperial expansion.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="konoya.png" alt="Konoya" class="hero-image">
-        <div class="hero-info">
-            <h3>Konoya</h3>
-            <p class="origin">Origin: Earth (Japan)</p>
-            <p class="role">Lead Psychologist</p>
-            <p class="bio">The architect of the Thiran psyche. Konoya specializes in mitigating the "Apostasis" that breaks lesser men, ensuring the pioneers remain focused, sane, and loyal to the cause.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="pars.png" alt="Pars" class="hero-image">
-        <div class="hero-info">
-            <h3>Pars</h3>
-            <p class="origin">Origin: Gaia / First Generation</p>
-            <p class="role">Resource Logistics & Planetary Scout</p>
-            <p class="bio">A specialist in the Nature & Resources division. One of the first to walk Gaia's soil, he identified the mineral wealth that fueled the construction of the massive Thiran Armada.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="prana.png" alt="Prana" class="hero-image">
-        <div class="hero-info">
-            <h3>Prana (Prasi)</h3>
-            <p class="origin">Origin: Earth (Lineage) / Thira</p>
-            <p class="role">Imperial Ambassador</p>
-            <p class="bio">The diplomatic face of the Empire. She ensures First Contact follows the Thiran Tithe, allowing species their culture while demanding their 15% wealth and total loyalty to Alex.</p>
-        </div>
-    </div>
-
-    <div class="hero-card">
-        <img src="steve.png" alt="Steve" class="hero-image">
-        <div class="hero-info">
-            <h3>Steve</h3>
-            <p class="origin">Origin: Earth (South Africa)</p>
-            <p class="role">Head of Applied Engineering</p>
-            <p class="bio">The man who turned theory into titanium. Steve led the teams that built the first permanent structures on Gaia and the orbital stations above Thira. His fingerprints are on every blueprint.</p>
-        </div>
-    </div>
-
-</div>
+            <div class="hero-card">
+                <img src="bara.png" alt="Bara" class="hero-image">
+                <div class="hero-info">
+                    <h3>Bara</h3>
+                    <p class="origin">Origin: Earth (Jordan)</p>
+                    <p class="role">Commander of Military Operations</p>
+                    <p class="bio">A man of iron discipline and tactical foresight. Bara was the wall between order and extinction during Earth's impact and the architect of Thira’s security.</p>
+                </div>
             </div>
-    </div>
 
-</body>
-</html>
+            <div class="hero-card">
+                <img src="clive.png" alt="Clive" class="hero-image">
+                <div class="hero-info">
+                    <h3>Clive</h3>
+                    <p class="origin">Origin: Earth (England)</p>
+                    <p class="role">Elite Pilot & Navigator</p>
+                    <p class="bio">The heartbeat of the journey to Gaia. His nerves never frayed during the Great Impact, ensuring the harrowing transport of the "chosen" to the safety of the stars.</p>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <img src="dimitri.png" alt="Dimitri" class="hero-image">
+                <div class="hero-info">
+                    <h3>Dimitri</h3>
+                    <p class="origin">Origin: Earth (Russia)</p>
+                    <p class="role">Lead Historian</p>
+                    <p class="bio">The guardian of collective memory. Dimitri ensures the lessons of the old Earth are translated into the laws of the new Empire, so humanity never forgets its roots.</p>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <img src="eldon.png" alt="Eldon" class="hero-image">
+                <div class="hero-info">
+                    <h3>Eldon</h3>
+                    <p class="origin">Origin: Earth (England)</p>
+                    <p class="role">Chief Communications Officer</p>
+                    <p class="bio">The voice in the dark. Eldon managed the threads of human connection in the early days of Gaia, filtering the news that shaped the new civilization.</p>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <img src="habo.png" alt="Habo" class="hero-image">
+                <div
