@@ -16,9 +16,8 @@
             return false;
         }
     };
-</script>
+    </script>
     
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -34,7 +33,8 @@
     <style>
         body {
             margin: 0; padding: 0;
-            background: url('background.png') no-repeat center center fixed; 
+            /* Updated UI Path */
+            background: url('assets/images/ui/background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
             font-family: 'Segoe UI', sans-serif;
@@ -46,7 +46,7 @@
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7); /* Slightly darker to make book covers pop */
+            background: rgba(0, 0, 0, 0.7); 
             z-index: -1;
         }
 
@@ -55,6 +55,7 @@
             text-align: center;
         }
 
+        /* Fixed Square Button */
         .back-home {
             color: white;
             text-decoration: none;
@@ -64,25 +65,23 @@
             padding: 10px 25px;
             transition: 0.3s;
             text-transform: uppercase;
+            border-radius: 0px; /* Square edges */
         }
 
         .back-home:hover { background: white; color: black; }
 
-        /* THE BOOK GRID (2x3 on PC, 1x6 on Mobile) */
         .library-grid {
             display: grid;
             gap: 50px;
             padding: 40px;
             max-width: 1100px;
             margin: 0 auto;
-            /* Mobile Default: 1 column */
             grid-template-columns: 1fr;
             justify-items: center;
         }
 
         @media (min-width: 1024px) {
             .library-grid {
-                /* PC View: 3 columns */
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -112,59 +111,4 @@
             letter-spacing: 2px;
             font-weight: bold;
             text-transform: uppercase;
-            text-align: center;
-        }
-
-        /* Coming Soon Placeholder Style */
-        .coming-soon {
-            filter: grayscale(1) opacity(0.5);
-            cursor: default;
-        }
-        .coming-soon-text { color: #888; }
-    </style>
-</head>
-<body>
-
-    <div class="header">
-        <a href="index.html" class="back-home">Back to Hub</a>
-        <h1 style="margin-top: 50px; letter-spacing: 10px;">THE ARCHIVES</h1>
-    </div>
-
-    <div class="library-grid">
-        
-        <div class="book-item">
-            <a href="Gaia.pdf" target="_blank">
-                <img src="gaia.png" alt="Gaia" class="book-cover">
-            </a>
-            <div class="book-title">Gaia</div>
-        </div>
-
-        <div class="book-item">
-            <img src="gaia.png" class="book-cover coming-soon">
-            <div class="book-title coming-soon-text">Phoenix</div>
-        </div>
-
-        <div class="book-item">
-            <img src="gaia.png" class="book-cover coming-soon">
-            <div class="book-title coming-soon-text">The Olympians</div>
-        </div>
-
-        <div class="book-item">
-            <img src="gaia.png" class="book-cover coming-soon">
-            <div class="book-title coming-soon-text">Galactic Dominance</div>
-        </div>
-
-        <div class="book-item">
-            <img src="gaia.png" class="book-cover coming-soon">
-            <div class="book-title coming-soon-text">Cosmic Conquest</div>
-        </div>
-
-        <div class="book-item">
-            <img src="gaia.png" class="book-cover coming-soon">
-            <div class="book-title coming-soon-text">The Engine</div>
-        </div>
-
-    </div>
-
-</body>
-</html>
+            text-align:
