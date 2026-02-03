@@ -18,7 +18,6 @@
     };
 </script>
     
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -34,7 +33,7 @@
     <style>
         body {
             margin: 0; padding: 0;
-            background: url('background.png') no-repeat center center fixed; 
+            background: url('assets/images/ui/background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
             font-family: 'Segoe UI', sans-serif;
@@ -64,25 +63,23 @@
             padding: 10px 25px;
             transition: 0.3s;
             text-transform: uppercase;
+            border-radius: 0px; /* Imperial Square Style */
         }
 
         .back-home:hover { background: white; color: black; }
 
-        /* THE DYNAMIC GRID */
         .series-grid {
             display: grid;
             gap: 50px;
             padding: 40px;
             max-width: 1200px;
             margin: 0 auto;
-            /* Default: 1 column for mobile */
             grid-template-columns: 1fr;
             justify-items: center;
         }
 
         @media (min-width: 1024px) {
             .series-grid {
-                /* PC: 3 columns that grow rows automatically */
                 grid-template-columns: repeat(3, 1fr);
             }
         }
@@ -97,7 +94,7 @@
         .story-item:hover { transform: scale(1.05); }
 
         .story-cover {
-            width: 260px; /* Slightly wider than book covers for variety */
+            width: 260px; 
             height: 380px;
             object-fit: cover;
             border-radius: 10px;
@@ -127,34 +124,34 @@
     <div class="series-grid">
 
         <div class="story-item">
-            <a href="thenetwork.pdf" target="_blank">
-                <img src="thenetwork.png" alt="The Network" class="story-cover">
+            <a href="assets/docs/thenetwork.pdf" target="_blank">
+                <img src="assets/images/ui/thenetwork.png" alt="The Network" class="story-cover">
             </a>
             <div class="story-title">The Network</div>
         </div>
         
         <div class="story-item">
-            <a href="thedoll.pdf" target="_blank">
-                <img src="thedoll.png" alt="The Doll" class="story-cover">
+            <a href="assets/docs/thedoll.pdf" target="_blank">
+                <img src="assets/images/ui/thedoll.png" alt="The Doll" class="story-cover">
             </a>
             <div class="story-title">The Doll</div>
         </div>
 
         <div class="story-item">
-            <a href="theparadoxbomb.pdf" target="_blank">
-                <img src="theparadoxbomb.png" alt="The Paradox Bomb" class="story-cover">
+            <a href="assets/docs/theparadoxbomb.pdf" target="_blank">
+                <img src="assets/images/ui/theparadoxbomb.png" alt="The Paradox Bomb" class="story-cover">
             </a>
             <div class="story-title">The Paradox Bomb</div>
         </div>
 
         <div class="story-item">
-            <a href="anewbegining.pdf" target="_blank">
-                <img src="anewbegining.png" alt="A New Beginning" class="story-cover">
+            <a href="assets/docs/anewbegining.pdf" target="_blank">
+                <img src="assets/images/ui/anewbegining.png" alt="A New Beginning" class="story-cover">
             </a>
             <div class="story-title">A New Beginning</div>
         </div>
 
-        </div>
+    </div>
 
 </body>
 </html>
