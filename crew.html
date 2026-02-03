@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -18,7 +17,8 @@
     <style>
         body {
             margin: 0; padding: 0;
-            background: url('background.png') no-repeat center center fixed; 
+            /* Updated Path to assets folder */
+            background: url('assets/images/ui/background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
             font-family: 'Segoe UI', sans-serif;
@@ -42,6 +42,7 @@
 
         .header { text-align: center; margin-bottom: 60px; }
 
+        /* Fixed Square Button */
         .back-home {
             color: white;
             text-decoration: none;
@@ -51,17 +52,18 @@
             padding: 10px 25px;
             transition: 0.3s;
             text-transform: uppercase;
+            border-radius: 0px; /* Made Square */
         }
 
         .back-home:hover { background: white; color: black; }
 
-        /* THE CREW ROW SETUP */
         .crew-member {
             display: flex;
-            flex-direction: column; /* Mobile Default: Stacked */
+            flex-direction: column;
             align-items: center;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 30px;
@@ -73,7 +75,7 @@
 
         @media (min-width: 768px) {
             .crew-member {
-                flex-direction: row; /* PC View: Side by Side */
+                flex-direction: row;
                 text-align: left;
                 align-items: flex-start;
             }
@@ -83,7 +85,7 @@
             width: 180px;
             height: 180px;
             object-fit: cover;
-            border-radius: 50%; /* Makes them circular and elegant */
+            border-radius: 50%;
             border: 3px solid white;
             margin-bottom: 20px;
         }
@@ -119,35 +121,31 @@
         </div>
 
         <div class="crew-member">
-            <img src="fotios.jpg" alt="Fotios" class="crew-img">
+            <img src="assets/images/heroes/fotios.jpg" alt="Fotios" class="crew-img">
             <div class="crew-info">
                 <h2>Fotios</h2>
                 <p>
-                  The seeds of the Chronicles of the Milky Way Galaxy were first sown twenty-six years ago, when the author was just fifteen. What began as a spark of adolescent imagination transformed into a lifelong pursuit of cosmic world-building. For the first two decades, the work was a silent, internal labor—a meticulous process of constructing a universe from the Big Bang (Year 0 eo) to the height of the Thiran Empire, ensuring that every law of physics, every alien biology, and every political tithe was mathematically and logically sound.
-
-After twenty years of refining the timeline and the lore, the project has transitioned from the mind to the page. We are now in the era of manifestation.
-
-The result is a sprawling six-book epic and a collection of novellas that challenge the boundaries of sci-fi and fantasy. The author’s writing is defined by its massive scale, "show, don't tell" cinematic prose, and a gritty exploration of sovereignty versus stability. Having spent more than half a lifetime living within this galaxy, the author doesn't just write these stories—he documents a living history that has been twenty-six years in the making.
+                  The seeds of the Chronicles of the Milky Way Galaxy were first sown twenty-six years ago, when the author was just fifteen. What began as a spark of adolescent imagination transformed into a lifelong pursuit of cosmic world-building. For the first two decades, the work was a silent, internal labor—a meticulous process of constructing a universe from the Big Bang (Year 0 eo) to the height of the Thiran Empire.
                 </p>
             </div>
         </div>
 
         <div class="crew-member">
-            <img src="panos.jpg" alt="Panos" class="crew-img">
+            <img src="assets/images/heroes/panos.jpg" alt="Panos" class="crew-img">
             <div class="crew-info">
                 <h2>Panagiotis Roumeliotis</h2>
                 <p>
-                    Raised in the shadow of giants like Tolkien, Herbert, and Lovecraft, Panagiotis has spent a lifetime navigating the limitless reaches of speculative fiction. From the cosmic horrors of the void to the intricate political webs of Asimov and Corey, his personal philosophy is deeply rooted in the genre’s most legendary mythos. After years of collaborating with various prestigious sci-fi publications, he now serves as the Community Manager and Agent for The Chronicles of the Milky Way. In this role, he acts as a vital bridge between worlds, connecting creators with readers to bring expansive, new universes to life.
+                    Raised in the shadow of giants like Tolkien, Herbert, and Lovecraft, Panagiotis has spent a lifetime navigating the limitless reaches of speculative fiction. He now serves as the Community Manager and Agent for The Chronicles of the Milky Way, acting as a vital bridge between creators and readers to bring expansive, new universes to life.
                 </p>
             </div>
         </div>
 
         <div class="crew-member">
-            <img src="thanos.jpg" alt="Thanos" class="crew-img">
+            <img src="assets/images/heroes/thanos.jpg" alt="Thanos" class="crew-img">
             <div class="crew-info">
                 <h2>Thanos Hatzidimitriou</h2>
                 <p>
-                    Thanos brings a rare combination of seasoned marketing insight and cutting-edge technical execution to the table. Having built his career in traditional creative roles, he has successfully evolved alongside the digital landscape, leveraging AI to scale narratives into shareable, immersive realities. For The Chronicles of the Milky Way, he serves as the bridge between literature and visual media, using AI-driven video, music, and branding to guide audiences back to the heart of the saga. He remains a firm believer that AI is at its most potent when guided by an experienced hand.
+                    Thanos brings a rare combination of seasoned marketing insight and cutting-edge technical execution to the table. For The Chronicles of the Milky Way, he serves as the bridge between literature and visual media, using AI-driven video, music, and branding to guide audiences back to the heart of the saga.
                 </p>
             </div>
         </div>
