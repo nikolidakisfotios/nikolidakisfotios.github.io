@@ -16,8 +16,8 @@
     <style>
     body {
         background-color: #0a0a0a;
-        /* Replace 'space-bg.jpg' with your actual background image name if you have one */
-        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('background.png');
+        /* Updated UI Path */
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('assets/images/ui/background.png');
         background-attachment: fixed;
         background-size: cover;
         color: white;
@@ -26,7 +26,7 @@
     }
 
     .container {
-        max-width: 1200px; /* Limits the spread of the archive */
+        max-width: 1200px;
         margin: 0 auto;
         padding: 40px 20px;
     }
@@ -36,7 +36,6 @@
         margin-bottom: 50px;
     }
 
-    /* Restoration of the Glassmorphism Card */
     .hero-card {
         background: rgba(255, 255, 255, 0.03);
         backdrop-filter: blur(15px);
@@ -57,10 +56,9 @@
         box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
     }
 
-    /* Fixed Image size - No longer "Gigantic" */
     .hero-image {
         width: 100%;
-        height: 280px; /* Controlled height */
+        height: 280px;
         object-fit: cover;
         filter: brightness(0.9);
         transition: 0.4s;
@@ -86,7 +84,7 @@
         font-size: 0.75rem;
         text-transform: uppercase;
         letter-spacing: 1.5px;
-        color: #00d4ff; /* A futuristic blue for high-rank info */
+        color: #00d4ff;
         margin: 5px 0;
     }
 
@@ -98,13 +96,13 @@
         font-weight: 300;
     }
 
-    /* Grid layout - Restoring the 3-across look */
     .heroes-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: 35px;
     }
 
+    /* Fixed Square Button */
     .back-home {
         display: inline-block;
         margin-bottom: 20px;
@@ -114,7 +112,7 @@
         letter-spacing: 2px;
         border: 1px solid rgba(255,255,255,0.2);
         padding: 10px 20px;
-        border-radius: 50px;
+        border-radius: 0px; /* Made square */
         transition: 0.3s;
     }
 
@@ -135,7 +133,7 @@
         <div class="heroes-grid">
 
             <div class="hero-card">
-                <img src="alex.png" alt="Alex" class="hero-image">
+                <img src="assets/images/heroes/alex.png" alt="Alex" class="hero-image">
                 <div class="hero-info">
                     <h3>Alex</h3>
                     <p class="origin">Origin: Earth Era</p>
@@ -145,7 +143,7 @@
             </div>
 
             <div class="hero-card">
-                <img src="jain.png" alt="Jain" class="hero-image">
+                <img src="assets/images/heroes/jain.png" alt="Jain" class="hero-image">
                 <div class="hero-info">
                     <h3>Jain</h3>
                     <p class="origin">Origin: Earth Era</p>
@@ -155,7 +153,7 @@
             </div>
 
             <div class="hero-card">
-                <img src="bara.png" alt="Bara" class="hero-image">
+                <img src="assets/images/heroes/bara.png" alt="Bara" class="hero-image">
                 <div class="hero-info">
                     <h3>Bara</h3>
                     <p class="origin">Origin: Earth (Jordan)</p>
@@ -165,7 +163,7 @@
             </div>
 
             <div class="hero-card">
-                <img src="clive.png" alt="Clive" class="hero-image">
+                <img src="assets/images/heroes/clive.png" alt="Clive" class="hero-image">
                 <div class="hero-info">
                     <h3>Clive</h3>
                     <p class="origin">Origin: Earth (England)</p>
@@ -175,7 +173,7 @@
             </div>
 
             <div class="hero-card">
-                <img src="dimitri.png" alt="Dimitri" class="hero-image">
+                <img src="assets/images/heroes/dimitri.png" alt="Dimitri" class="hero-image">
                 <div class="hero-info">
                     <h3>Dimitri</h3>
                     <p class="origin">Origin: Earth (Russia)</p>
@@ -185,7 +183,7 @@
             </div>
 
             <div class="hero-card">
-                <img src="eldon.png" alt="Eldon" class="hero-image">
+                <img src="assets/images/heroes/eldon.png" alt="Eldon" class="hero-image">
                 <div class="hero-info">
                     <h3>Eldon</h3>
                     <p class="origin">Origin: Earth (England)</p>
@@ -194,62 +192,65 @@
                 </div>
             </div>
 
-           <div class="hero-card">
-            <img src="habo.png" alt="Habo" class="hero-image">
-            <div class="hero-info">
-                <h3>Habo</h3>
-                <p class="origin">Origin: Alpaz / Orcish Lineage</p>
-                <p class="role">Tribal Leader & First Contact Catalyst</p>
-                <p class="bio">A towering figure of raw strength and surprising wisdom, Habo represents the bridge between the Thiran "Circle" and the indigenous species. He proved the Empire could integrate diverse biologies through respect.</p>
+            <div class="hero-card">
+                <img src="assets/images/heroes/habo.png" alt="Habo" class="hero-image">
+                <div class="hero-info">
+                    <h3>Habo</h3>
+                    <p class="origin">Origin: Alpaz / Orcish Lineage</p>
+                    <p class="role">Tribal Leader & First Contact Catalyst</p>
+                    <p class="bio">A towering figure of raw strength and surprising wisdom, Habo represents the bridge between the Thiran "Circle" and the indigenous species.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="hero-card">
-            <img src="hypatia.png" alt="Hypatia" class="hero-image">
-            <div class="hero-info">
-                <h3>Hypatia</h3>
-                <p class="origin">Origin: Earth (Greece)</p>
-                <p class="role">Chief Astrophysicist</p>
-                <p class="bio">Mapping the heavens Alex seeks to conquer. Her calculations allowed the Gaia mission to navigate Oort cloud anomalies, viewing the stars as the mathematical certainty of Imperial expansion.</p>
+            <div class="hero-card">
+                <img src="assets/images/heroes/hypatia.png" alt="Hypatia" class="hero-image">
+                <div class="hero-info">
+                    <h3>Hypatia</h3>
+                    <p class="origin">Origin: Earth (Greece)</p>
+                    <p class="role">Chief Astrophysicist</p>
+                    <p class="bio">Mapping the heavens Alex seeks to conquer. Her calculations allowed the Gaia mission to navigate Oort cloud anomalies with mathematical certainty.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="hero-card">
-            <img src="konoya.png" alt="Konoya" class="hero-image">
-            <div class="hero-info">
-                <h3>Konoya</h3>
-                <p class="origin">Origin: Earth (Japan)</p>
-                <p class="role">Lead Psychologist</p>
-                <p class="bio">Architect of the Thiran psyche. She specializes in mitigating the "Apostasis" that breaks lesser men, ensuring the pioneers remain focused, sane, and loyal to the immortality they now carry.</p>
+            <div class="hero-card">
+                <img src="assets/images/heroes/konoya.png" alt="Konoya" class="hero-image">
+                <div class="hero-info">
+                    <h3>Konoya</h3>
+                    <p class="origin">Origin: Earth (Japan)</p>
+                    <p class="role">Lead Psychologist</p>
+                    <p class="bio">Architect of the Thiran psyche. She specializes in mitigating the "Apostasis" (the distance) of space, ensuring the pioneers remain sane and loyal.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="hero-card">
-            <img src="pars.png" alt="Pars" class="hero-image">
-            <div class="hero-info">
-                <h3>Pars</h3>
-                <p class="origin">Origin: Gaia / First Generation</p>
-                <p class="role">Resource Logistics & Planetary Scout</p>
-                <p class="bio">A specialist in the Nature & Resources division and the first to walk the soil of Gaia. Pars identified the mineral wealth that fueled the construction of the massive Thiran Armada.</p>
+            <div class="hero-card">
+                <img src="assets/images/heroes/pars.png" alt="Pars" class="hero-image">
+                <div class="hero-info">
+                    <h3>Pars</h3>
+                    <p class="origin">Origin: Gaia / First Generation</p>
+                    <p class="role">Resource Logistics & Planetary Scout</p>
+                    <p class="bio">A specialist in the Nature & Resources division and the first to walk the soil of Gaia. Pars identified the mineral wealth for the Thiran Armada.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="hero-card">
-            <img src="prana.png" alt="Prana" class="hero-image">
-            <div class="hero-info">
-                <h3>Prana (Prasi)</h3>
-                <p class="origin">Origin: Earth (Lineage) / Thira</p>
-                <p class="role">Imperial Ambassador</p>
-                <p class="bio">The diplomatic face of the Empire. Prana ensures "First Contact" follows the Thiran Tithe, allowing species their culture while demanding 15% wealth and total loyalty to the throne.</p>
+            <div class="hero-card">
+                <img src="assets/images/heroes/prana.png" alt="Prana" class="hero-image">
+                <div class="hero-info">
+                    <h3>Prana (Prasi)</h3>
+                    <p class="origin">Origin: Earth (Lineage) / Thira</p>
+                    <p class="role">Imperial Ambassador</p>
+                    <p class="bio">The diplomatic face of the Empire. Prana ensures "First Contact" follows the Thiran Tithe, demanding total loyalty to the throne.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="hero-card">
-            <img src="steve.png" alt="Steve" class="hero-image">
-            <div class="hero-info">
-                <h3>Steve</h3>
-                <p class="origin">Origin: Earth (South Africa)</p>
-                <p class="role">Head of Applied Engineering</p>
-                <p class="bio">Turning theory into titanium. Steve led the engineering teams that built the first permanent structures on Gaia and the orbital stations. His fingerprints are on every Imperial hull and thruster.</p>
+            <div class="hero-card">
+                <img src="assets/images/heroes/steve.png" alt="Steve" class="hero-image">
+                <div class="hero-info">
+                    <h3>Steve</h3>
+                    <p class="origin">Origin: Earth (South Africa)</p>
+                    <p class="role">Head of Applied Engineering</p>
+                    <p class="bio">Turning theory into titanium. Steve led the teams that built the first permanent structures on Gaia and the orbital stations above Thira.</p>
+                </div>
             </div>
-        </div>
+
+        </div> </div> </body>
+</html>
