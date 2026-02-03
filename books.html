@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <script>
-    // Disable right-click globally
-    document.addEventListener('contextmenu', event => event.preventDefault());
+        // Disable right-click globally
+        document.addEventListener('contextmenu', event => event.preventDefault());
 
-    // Disable keyboard shortcuts for copying or viewing source
-    document.onkeydown = function(e) {
-        if (e.ctrlKey && 
-            (e.keyCode === 67 || // Ctrl+C
-             e.keyCode === 85 || // Ctrl+U
-             e.keyCode === 83 || // Ctrl+S
-             e.keyCode === 73)) { // Ctrl+Shift+I (Inspect)
-            return false;
-        }
-    };
+        // Disable keyboard shortcuts for copying or viewing source
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && 
+                (e.keyCode === 67 || // Ctrl+C
+                 e.keyCode === 85 || // Ctrl+U
+                 e.keyCode === 83 || // Ctrl+S
+                 e.keyCode === 73)) { // Ctrl+Shift+I (Inspect)
+                return false;
+            }
+        };
     </script>
     
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-N1F07XJXTK');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N1F07XJXTK');
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +31,6 @@
     <style>
         body {
             margin: 0; padding: 0;
-            /* Updated UI Path */
             background: url('assets/images/ui/background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
@@ -55,7 +52,6 @@
             text-align: center;
         }
 
-        /* Fixed Square Button */
         .back-home {
             color: white;
             text-decoration: none;
@@ -65,7 +61,7 @@
             padding: 10px 25px;
             transition: 0.3s;
             text-transform: uppercase;
-            border-radius: 0px; /* Square edges */
+            border-radius: 0px;
         }
 
         .back-home:hover { background: white; color: black; }
@@ -111,4 +107,58 @@
             letter-spacing: 2px;
             font-weight: bold;
             text-transform: uppercase;
-            text-align:
+            text-align: center;
+        }
+
+        .coming-soon {
+            filter: grayscale(1) opacity(0.5);
+            cursor: default;
+        }
+        .coming-soon-text { color: #888; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-home">Back to Hub</a>
+        <h1 style="margin-top: 50px; letter-spacing: 10px;">THE ARCHIVES</h1>
+    </div>
+
+    <div class="library-grid">
+        
+        <div class="book-item">
+            <a href="assets/docs/Gaia.pdf" target="_blank">
+                <img src="assets/images/ui/gaia.png" alt="Gaia" class="book-cover">
+            </a>
+            <div class="book-title">Gaia</div>
+        </div>
+
+        <div class="book-item">
+            <img src="assets/images/ui/gaia.png" class="book-cover coming-soon">
+            <div class="book-title coming-soon-text">Phoenix</div>
+        </div>
+
+        <div class="book-item">
+            <img src="assets/images/ui/gaia.png" class="book-cover coming-soon">
+            <div class="book-title coming-soon-text">The Olympians</div>
+        </div>
+
+        <div class="book-item">
+            <img src="assets/images/ui/gaia.png" class="book-cover coming-soon">
+            <div class="book-title coming-soon-text">Galactic Dominance</div>
+        </div>
+
+        <div class="book-item">
+            <img src="assets/images/ui/gaia.png" class="book-cover coming-soon">
+            <div class="book-title coming-soon-text">Cosmic Conquest</div>
+        </div>
+
+        <div class="book-item">
+            <img src="assets/images/ui/gaia.png" class="book-cover coming-soon">
+            <div class="book-title coming-soon-text">The Engine</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
