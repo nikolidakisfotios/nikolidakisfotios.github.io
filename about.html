@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1F07XJXTK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -18,7 +17,8 @@
     <style>
         body {
             margin: 0; padding: 0;
-            background: url('background.png') no-repeat center center fixed; 
+            /* Updated UI Path */
+            background: url('assets/images/ui/background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -51,6 +51,7 @@
             animation: fadeIn 1.2s ease;
         }
 
+        /* Fixed Square Button */
         .back-btn {
             display: inline-block;
             margin-bottom: 40px;
@@ -62,6 +63,7 @@
             padding: 10px 25px;
             transition: 0.3s;
             text-transform: uppercase;
+            border-radius: 0px; /* Square edges */
         }
 
         .back-btn:hover { background: white; color: black; }
@@ -95,7 +97,7 @@
         .about-text {
             line-height: 1.8;
             font-size: 1.05rem;
-            text-align: justify;
+            text-align: left; /* Changed to left for better mobile flow */
             color: rgba(255, 255, 255, 0.9);
         }
 
