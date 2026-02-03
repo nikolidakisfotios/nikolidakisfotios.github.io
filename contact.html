@@ -7,7 +7,8 @@
     <style>
         body {
             margin: 0; padding: 0;
-            background: url('background.png') no-repeat center center fixed; 
+            /* Updated Path to assets folder */
+            background: url('assets/images/ui/background.png') no-repeat center center fixed; 
             background-size: cover;
             background-color: black; 
             font-family: 'Segoe UI', sans-serif;
@@ -33,6 +34,7 @@
             animation: fadeIn 1s ease;
         }
 
+        /* Fixed Square Button */
         .back-btn {
             display: inline-block;
             margin-bottom: 35px;
@@ -44,6 +46,7 @@
             padding: 10px 25px;
             transition: 0.3s;
             text-transform: uppercase;
+            border-radius: 0px; /* Made Square */
         }
 
         .back-btn:hover { background: white; color: black; }
@@ -80,7 +83,7 @@
             padding: 15px;
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+            border-radius: 4px; /* Slightly sharper corners */
             color: white;
             font-family: inherit;
             font-size: 1rem;
@@ -94,13 +97,14 @@
             border-color: white;
         }
 
+        /* Main Submit Button - Made Square */
         button {
             margin-top: 10px;
             padding: 18px;
             background: white;
             color: black;
             border: none;
-            border-radius: 10px;
+            border-radius: 0px; /* Made Square */
             font-weight: bold;
             font-size: 1rem;
             letter-spacing: 3px;
