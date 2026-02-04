@@ -75,15 +75,18 @@
 
         .nav-btn:hover { transform: scale(1.08); filter: brightness(1.2); }
 
+        /* PC VERSION - SYMMETRICAL LAYOUT */
         @media (min-width: 1024px) {
             .universe-grid {
                 display: grid;
+                /* Added btn-mid area for Timeline */
                 grid-template-areas: 
                     "btn1  logo  btn2"
                     "btn3  logo  btn4"
-                    "btn5  logo  btn6";
+                    "btn5  logo  btn6"
+                    ".     btn-mid  .";
                 grid-template-columns: 280px 500px 280px; 
-                grid-template-rows: auto auto auto;
+                grid-template-rows: auto auto auto auto;
                 justify-content: center;
                 align-content: center;
                 gap: 20px 0px; 
@@ -97,6 +100,14 @@
             .area-heroes { grid-area: btn4; align-self: center; justify-self: center; }
             .area-crew { grid-area: btn5; align-self: start; justify-self: center; }
             .area-contact { grid-area: btn6; align-self: start; justify-self: center; }
+            
+            /* Timeline positioning */
+            .area-timeline { 
+                grid-area: btn-mid; 
+                align-self: start; 
+                justify-self: center; 
+                margin-top: 10px;
+            }
         }
 
         /* 3. VIDEO OVERLAY */
@@ -144,6 +155,8 @@
         <a href="heroes.html" class="nav-link area-heroes"><img src="assets/images/ui/heroes.png" class="nav-btn"></a>
         <a href="crew.html" class="nav-link area-crew"><img src="assets/images/ui/our-crew.png" class="nav-btn"></a>
         <a href="contact.html" class="nav-link area-contact"><img src="assets/images/ui/contact.png" class="nav-btn"></a>
+        
+        <a href="timeline.html" class="nav-link area-timeline"><img src="assets/images/ui/timeline.png" class="nav-btn"></a>
     </div>
 
 <script>
