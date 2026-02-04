@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCOMWG - Galactic Chronology</title>
+    <style>
+        body {
+            margin: 0; padding: 0;
+            background: url('assets/images/ui/background.png') no-repeat center center fixed; 
+            background-size: cover;
+            background-color: black; 
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn {
+            text-decoration: none; color: white; border: 1px solid white;
+            padding: 10px 20px; text-transform: uppercase; font-size: 0.8rem;
+            letter-spacing: 2px; transition: 0.3s;
+        }
+        .back-btn:hover { background: white; color: black; }
+
+        /* THE TIMELINE LINE */
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: rgba(255,255,255,0.2);
+            top: 0; bottom: 0; left: 50%;
+            margin-left: -1px;
+        }
+
+        /* TIMELINE BLOCKS */
+        .epoch {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0; /* For fade-in effect */
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .epoch.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .left { left: 0; text-align: right; }
+        .right { left: 50%; text-align: left; }
+
+        /* THE DOTS */
+        .epoch::after {
+            content: '';
+            position: absolute;
+            width: 20px; height: 20px;
+            right: -10px; background-color: white;
+            border: 4px solid #000;
+            top: 15px; border-radius: 50%; z-index: 1;
+        }
+        .right::after { left: -10px; }
+
+        /* THE CONTENT BOX */
+        .content {
+            padding: 20px 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        h2 { color: #fff; letter-spacing: 3px; margin-top: 0; }
+        .year { font-weight: bold; color: rgba(255,255,255,0.5); display: block; margin-bottom: 10px; }
+
+        @media screen and (max-width: 768px) {
+            .timeline-container::after { left: 31px; }
+            .epoch { width: 100%; padding-left: 70px; padding-right: 25px; text-align: left; }
+            .epoch::after { left: 21px; }
+            .right { left: 0%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html" class="back-btn">Return to Hub</a>
+        <h1 style="letter-spacing: 8px; text-transform: uppercase; margin-top: 30px;">Galactic Chronology</h1>
+        <p style="font-style: italic; opacity: 0.7;">Archived history from Year 0 eo to the Thiran Ascendancy</p>
+    </div>
+
+    <div class="timeline-container">
+        
+        <div class="epoch left">
+            <div class="content">
+                <span class="year">Year 0 eo</span>
+                <h2>The Genesis Point</h2>
+                <p>The Big Bang occurs. The fundamental laws of the Milky Way are etched into the fabric of reality, setting the stage for the first celestial bodies.</p>
+            </div>
+        </div>
+
+        <div class="epoch right">
+            <div class="content">
+                <span class="year">The Early Eras</span>
+                <h2>The Silent Billions</h2>
+                <p>Star systems coalesce. The first biological seeds begin to stir on the Core worlds, evolving in isolation for eons.</p>
+            </div>
+        </div>
+
+        <div class="epoch left">
+            <div class="content">
+                <span class="year">The Expansion Era</span>
+                <h2>Subspace Discovery</h2>
+                <p>Thiran ancestors unlock the ability to fold space. The galaxy suddenly becomes a much smaller place as the first interstellar bridges are built.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Simple Scroll Animation Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.epoch').forEach(epoch => {
+            observer.observe(epoch);
+        });
+    </script>
+
+</body>
+</html>
