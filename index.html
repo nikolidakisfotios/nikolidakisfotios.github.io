@@ -35,20 +35,41 @@
         .top-social-bar {
             position: fixed;
             top: 25px; right: 25px;
-            display: flex; gap: 20px; z-index: 50;
+            display: flex; 
+            gap: 15px; 
+            z-index: 50;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .top-social-bar a img { 
-            width: 45px; height: 45px; 
+            width: 40px; height: 40px; 
             opacity: 0.8; transition: 0.3s ease; 
         }
         .top-social-bar a:hover img { opacity: 1; transform: scale(1.1); }
+
+        /* Mobile Specific Adjustment for Social Bar */
+        @media (max-width: 1023px) {
+            .top-social-bar {
+                position: absolute;
+                top: 20px;
+                right: 0;
+                left: 0;
+                width: 100%;
+                justify-content: center;
+                gap: 10px;
+            }
+            .top-social-bar a img {
+                width: 35px;
+                height: 35px;
+            }
+        }
 
         /* 2. THE GRID CONTAINER */
         .universe-grid {
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 100px 20px 40px 20px;
+            padding: 120px 20px 40px 20px; /* Increased top padding for mobile social bar */
             gap: 20px;
             min-height: 100vh;
         }
@@ -79,7 +100,6 @@
         @media (min-width: 1024px) {
             .universe-grid {
                 display: grid;
-                /* Added btn-mid area for Timeline */
                 grid-template-areas: 
                     "btn1  logo  btn2"
                     "btn3  logo  btn4"
@@ -90,7 +110,7 @@
                 justify-content: center;
                 align-content: center;
                 gap: 20px 0px; 
-                padding: 20px;
+                padding: 40px 20px;
             }
             .site-logo { grid-area: logo; margin: 0 auto; }
             
@@ -101,7 +121,6 @@
             .area-crew { grid-area: btn5; align-self: start; justify-self: center; }
             .area-contact { grid-area: btn6; align-self: start; justify-self: center; }
             
-            /* Timeline positioning */
             .area-timeline { 
                 grid-area: btn-mid; 
                 align-self: start; 
@@ -135,6 +154,7 @@
         <a href="https://www.facebook.com/profile.php?id=100065114790871" target="_blank"><img src="assets/images/ui/facebook.png"></a>
         <a href="https://www.instagram.com/tcomwg?igsh=MXRqc3FpOHN2amMyNg==" target="_blank"><img src="assets/images/ui/instagram.png"></a>
         <a href="https://www.tiktok.com/@tcomwg?is_from_webapp=1&sender_device=pc" target="_blank"><img src="assets/images/ui/tiktok.png"></a>
+        <a href="https://www.youtube.com/@tcomwg" target="_blank"><img src="assets/images/ui/youtube.png"></a>
         <a href="https://www.reddit.com/user/tcomwg/" target="_blank"><img src="assets/images/ui/reddit.png"></a>
         <a href="https://www.royalroad.com/profile/508286/fictions" target="_blank"><img src="assets/images/ui/royalroad.png"></a>
         <a href="https://www.wattpad.com/story/376132462-the-chronicles-of-the-milky-way-galaxy-gaia" target="_blank"><img src="assets/images/ui/wattpad.png"></a>
@@ -155,7 +175,6 @@
         <a href="heroes.html" class="nav-link area-heroes"><img src="assets/images/ui/heroes.png" class="nav-btn"></a>
         <a href="crew.html" class="nav-link area-crew"><img src="assets/images/ui/our-crew.png" class="nav-btn"></a>
         <a href="contact.html" class="nav-link area-contact"><img src="assets/images/ui/contact.png" class="nav-btn"></a>
-        
         <a href="timeline.html" class="nav-link area-timeline"><img src="assets/images/ui/timeline.png" class="nav-btn"></a>
     </div>
 
